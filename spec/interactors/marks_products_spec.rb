@@ -27,9 +27,9 @@ describe MarksProducts do
   context 'the product is already marked' do
     it 'does nothing' do
       customer_id = MarksProducts.new(product_id: product.id).mark
-    expect {
-      MarksProducts.new(product_id: product.id, customer_id: customer_id).mark
-    }.not_to change { basket_repo.all_products_for(customer_id: customer_id).size }
+      expect {
+        MarksProducts.new(product_id: product.id, customer_id: customer_id).mark
+      }.not_to change { basket_repo.all_products_for(customer_id: customer_id).size }
     end
   end
 

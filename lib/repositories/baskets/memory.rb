@@ -19,6 +19,12 @@ module Repositories
         @baskets[customer_id] << product_id
       end
 
+      def remove(product_id: nil, customer_id: nil)
+        if exists_for_customer?(product_id: product_id, customer_id: customer_id)
+          @baskets[customer_id].delete product_id
+        end
+      end
+
       def all_products_for(customer_id: nil)
         @baskets[customer_id] || []
       end
