@@ -9,7 +9,7 @@ class MarksProducts
 
   def mark
     generate_customer_id unless customer_id
-    repo.add(product_id: product_id, customer_id: customer_id)
+    mark_product
     customer_id
   end
 
@@ -18,5 +18,11 @@ class MarksProducts
 
   def generate_customer_id
     @customer_id = SecureRandom.uuid
+  end
+
+  def mark_product
+    if !repo.exists_for_customer?(customer_id: customer_id, product_id: product_id)
+      repo.add(product_id: product_id, customer_id: customer_id)
+    end
   end
 end

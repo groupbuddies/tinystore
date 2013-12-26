@@ -22,6 +22,10 @@ module Repositories
       def all_products_for(customer_id: nil)
         @baskets[customer_id] || []
       end
+
+      def exists_for_customer?(product_id: nil, customer_id: nil)
+        all_products_for(customer_id: customer_id).include? product_id
+      end
     end
   end
 end
