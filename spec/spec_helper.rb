@@ -8,5 +8,7 @@ end
 require 'pry'
 require 'repository'
 require 'repositories/stores/memory'
+require 'repositories/products/memory'
 
 Repository.register :store, Repositories::Stores::Memory.new
+Repository.register :product, Repositories::Products::Memory.new

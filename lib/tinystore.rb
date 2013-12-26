@@ -4,6 +4,8 @@ autoload :Repository, "repository"
 
 autoload :CreatesStore, "tinystore/interactors/creates_store"
 autoload :GetsStore, "tinystore/interactors/gets_store"
+autoload :AddsProduct, 'tinystore/interactors/adds_product'
+autoload :GetsProducts, 'tinystore/interactors/gets_products'
 
 autoload :Store, "tinystore/entities/store"
 
