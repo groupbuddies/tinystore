@@ -26,6 +26,10 @@ module Repositories
           product.store_id == store_id
         end
       end
+
+      def find_by_id(id)
+        @products[id]
+      end
     end
   end
 end

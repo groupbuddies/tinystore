@@ -11,19 +11,36 @@ describe GetsProducts do
     store_repo.clear
   end
 
-  it 'gets all products' do
-    first_product = product_repo.save(Product.new(product_params))
-    second_product = product_repo.save(Product.new(product_params))
+  context '#all' do
+    it 'gets all products' do
+      first_product = product_repo.save(Product.new(product_params))
+      second_product = product_repo.save(Product.new(product_params))
 
-    GetsProducts.new.all.should =~ [first_product, second_product]
+      GetsProducts.new.all.should =~ [first_product, second_product]
+    end
+
+    it 'gets all products for a store' do
+      other_store_id = 10
+      first_product = product_repo.save(Product.new(product_params))
+      product_repo.save(Product.new(product_params.merge(store_id: other_store_id)))
+
+      GetsProducts.new(store_id: first_product.store_id).all.should =~ [first_product]
+    end
   end
 
-  it 'gets all products for a store' do
-    other_store_id = 10
-    first_product = product_repo.save(Product.new(product_params))
-    product_repo.save(Product.new(product_params.merge(store_id: other_store_id)))
+  context '#find_by_id' do
+    it 'gets a single product' do
+      product = product_repo.save(Product.new(product_params))
 
-    GetsProducts.new(store_id: first_product.store_id).all.should =~ [first_product]
+      GetsProducts.new.find_by_id(product.id).should eq product
+    end
+
+    context 'non-existing id' do
+      it 'returns nothing' do
+        non_existing_id = 1
+        GetsProducts.new.find_by_id(non_existing_id).should eq nil
+      end
+    end
   end
 
   def product_params

@@ -12,6 +12,10 @@ class GetsProducts
     end
   end
 
+  def find_by_id(id)
+    repo.find_by_id(id)
+  end
+
   private
   attr_reader :repo, :store_id
 end
