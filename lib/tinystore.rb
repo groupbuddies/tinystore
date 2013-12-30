@@ -8,6 +8,7 @@ autoload :AddsProduct, 'tinystore/interactors/adds_product'
 autoload :GetsProducts, 'tinystore/interactors/gets_products'
 
 autoload :Store, "tinystore/entities/store"
+autoload :Product, "tinystore/entities/product"
 
 module Serializers
   autoload :Raw, "serializers/raw"
@@ -37,7 +38,7 @@ module Tinystore
 
     def initialize
       @default_repo_type = :memory
-      @repositories = {stores: nil}
+      @repositories = {stores: nil, products: nil}
       RepositoryConfig.define_repo_methods(@repositories)
     end
 

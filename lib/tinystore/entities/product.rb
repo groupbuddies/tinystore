@@ -2,7 +2,7 @@ require 'active_model'
 
 class Product
   include ActiveModel::Validations
-  ATTRIBUTES = [:id, :name, :description, :price, :store_id, :created_at, :updated_at]
+  ATTRIBUTES = [:id, :name, :description, :price, :image, :store_id, :created_at, :updated_at]
   attr_accessor *ATTRIBUTES
 
   validates_presence_of :name, :price, :store_id

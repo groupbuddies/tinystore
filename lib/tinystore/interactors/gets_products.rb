@@ -6,14 +6,14 @@ class GetsProducts
 
   def all
     if store_id
-      repo.all_products_for(store_id: store_id)
+      repo.all_products_for(store_id: store_id).map(&:value)
     else
-      repo.all
+      repo.all.map(&:value)
     end
   end
 
   def find_by_id(id)
-    repo.find_by_id(id)
+    repo.find_by_id(id).value
   end
 
   private
