@@ -1,4 +1,4 @@
-h2 Sign up
+h1 Sign up
 
 = semantic_form_for resource, as: resource_name, url: registration_path(resource_name) do |form|
   = form.inputs name: 'User'
@@ -14,7 +14,10 @@ h2 Sign up
     = store_form.input :logo
     = store_form.input :description
 
-  = form.actions
+  = form.actions name: 'Actions'
     = form.action :submit, label: t('registrations.new.submit')
 
-= render "devise/shared/links"
+- content_for :js
+  coffee:
+    $ ->
+      $('#new_user').registrationWizard()
