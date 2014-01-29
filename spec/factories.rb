@@ -10,4 +10,10 @@ FactoryGirl.define do
     end
   end
 
+  factory :store do
+    sequence(:name) { |i| "#{i} store" }
+    sequence(:email) { |i| "#{i}@store.com" }
+    sequence(:slug) { |i| "#{i}slug" }
+  end
+
 end
