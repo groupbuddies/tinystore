@@ -1,0 +1,14 @@
+h2 Sign up
+
+= semantic_form_for @registration, url: user_registration_path do |form|
+  = form.semantic_fields_for :user do |user_form|
+    = form.inputs name: 'User'
+      = form.input :name
+      = form.input :email
+      = form.input :password
+      = form.input :password_confirmation
+
+  = form.actions
+    = form.action :submit
+
+= render "devise/shared/links"
