@@ -6,6 +6,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    .notice = notice
-    .alert = alert
+
+    - flash.each do |key, value|
+      .flash class=(key)
+        = value
     = yield

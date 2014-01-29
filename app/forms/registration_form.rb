@@ -9,7 +9,7 @@ class RegistrationForm < FormObject::Base
 
   def save
     @user ||= User.new(user_attributes)
-    if valid?
+    if @user.valid? && valid?
       @user.save
     end
   end
@@ -17,7 +17,8 @@ class RegistrationForm < FormObject::Base
   def errors
     final_errors = super
     if @user
-      @user.errors.each { |error| final_errors.add(*error) }
+      final_errors.each { |error| @user.errors.add(*error) }
+      final_errors = @user.errors
     end
     final_errors
   end

@@ -9,6 +9,6 @@ h2 Sign up
       = form.input :password_confirmation
 
   = form.actions
-    = form.action :submit
+    = form.action :submit, label: t('registrations.new.submit')
 
 = render "devise/shared/links"
