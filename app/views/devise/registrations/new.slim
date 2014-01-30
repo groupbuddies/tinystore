@@ -1,23 +1,27 @@
-h1 Sign up
+.registration-page
+  = semantic_form_for resource, as: resource_name, url: registration_path(resource_name) do |form|
+    = form.inputs name: 'Create account'
+      = form.input :name
+      = form.input :email
+      = form.input :password
+      = form.input :password_confirmation
+      .actions
+        = link_to 'Next', '#next', class: 'btn-landing js-step-next'
 
-= semantic_form_for resource, as: resource_name, url: registration_path(resource_name) do |form|
-  = form.inputs name: 'User'
-    = form.input :name
-    = form.input :email
-    = form.input :password
-    = form.input :password_confirmation
+    = form.inputs name: 'Create store', for: resource.build_store do |store_form|
+      = store_form.input :name
+      = store_form.input :slug
+      = store_form.input :email
+      = store_form.input :logo
+      = store_form.input :description
+      .actions
+        = link_to 'Previous', '#previous', class: 'btn-landing js-step-previous'
+        = link_to 'Next', '#next', class: 'btn-landing js-step-next'
 
-  = form.inputs name: 'Store', for: resource.build_store do |store_form|
-    = store_form.input :name
-    = store_form.input :slug
-    = store_form.input :email
-    = store_form.input :logo
-    = store_form.input :description
+    = form.actions name: 'That\'s it'
+      = link_to 'Previous', '#previous', class: 'btn-landing js-step-previous'
+      = form.action :submit, label: t('registrations.new.submit')
 
-  = form.actions name: 'Actions'
-    = form.action :submit, label: t('registrations.new.submit')
-
-- content_for :js
   coffee:
     $ ->
       $('#new_user').registrationWizard()

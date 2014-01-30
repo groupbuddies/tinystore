@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
 
+  layout 'uikit', only: :uikit
+
   def index
   end
 
-  def user
+  def uikit
   end
 end

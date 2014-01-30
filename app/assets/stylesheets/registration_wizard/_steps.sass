@@ -1,0 +1,43 @@
+$step-name-size: 24px
+$step-width: 50px
+$step-number-size: 35px
+$step-number-margin: 35px
+
+.steps
+  ul
+    @extend .title
+    margin: 0
+    list-style-type: none
+    width: 100%
+    display: flex
+    justify-content: space-between
+  li
+    text-align: center
+    width: $step-width
+  a
+    text-decoration: none
+
+.step-name
+  position: absolute
+  width: $step-width * 4
+  margin-left: - $step-width * 2
+  font-size: $step-name-size
+  color: $light-blue
+  text-align: center
+
+.step-number
+  display: block
+  border-radius: 50%
+  margin-top: $step-number-margin
+  font-size: $step-number-size
+  background-color: $light-blue
+  color: $white
+  width: $step-width
+  height: $step-width
+  z-index: 5
+
+.current
+  .step-name
+    color: $orange
+  .step-number
+    background-color: $orange

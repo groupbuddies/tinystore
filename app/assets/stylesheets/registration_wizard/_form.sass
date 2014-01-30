@@ -1,0 +1,31 @@
+.user.wizard
+  fieldset
+    border: none
+    padding: 0
+  legend
+    display: none
+
+  input[type=text],
+  input[type=password],
+  input[type=email]
+    width: calc(100% - 1px)
+    border: solid 1px $light-blue
+    text-indent: $space
+    margin-bottom: 20px
+    &:focus
+      border-color: $orange
+
+  label
+    display: inline-block
+    position: absolute
+    text-align: right
+    width: 200px
+    margin-left: -220px
+    color: $light-blue
+
+  input,
+  label
+    padding: $space/2 0
+
+  .actions
+    float: right

@@ -1,0 +1,24 @@
+@import compass/layout/sticky-footer
+
+$header-color: $white
+$back-color: $bg-blue
+$footer-text-color: $orange
+$footer-height: 60px
+
+@include sticky-footer($footer-height, '.landing-root', '.landing-root-footer', '.landing-footer')
+
+.landing-header,
+.landing-footer
+  background-color: $header-color
+
+.landing-header
+  padding: $space/2 $space
+
+.landing-root
+  background-color: $back-color
+
+.landing-footer-text
+  line-height: $footer-height
+  color: $footer-text-color
+  font-family: $title-font
+  font-style: italic

@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    = render '/layouts/head'
+  body
+    .landing-root
+      header.landing-header
+        = render '/layouts/landing/header'
+      = render '/layouts/flash'
+      .landing-content
+        == yield
+      .landing-root-footer
+    footer.landing-footer
+      = render '/layouts/landing/footer'

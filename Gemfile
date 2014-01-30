@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 
-gem 'bourbon'
+gem 'compass-rails'
 gem 'formtastic'
 gem 'devise', '~> 3.2.2'
 gem 'devise-i18n'

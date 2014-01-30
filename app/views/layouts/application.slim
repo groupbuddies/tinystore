@@ -1,15 +1,7 @@
 doctype
 html
   head
-    title Tinystore
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
+    = render '/layouts/head'
   body
-
-    - flash.each do |key, value|
-      .flash class=(key)
-        = value
-    = yield
-
-    = content_for(:js)
+    = render '/layouts/flash'
+    == yield
