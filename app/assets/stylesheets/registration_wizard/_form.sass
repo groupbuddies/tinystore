@@ -5,16 +5,6 @@
   legend
     display: none
 
-  input[type=text],
-  input[type=password],
-  input[type=email]
-    width: calc(100% - 1px)
-    border: solid 1px $light-blue
-    text-indent: $space
-    margin-bottom: 20px
-    &:focus
-      border-color: $orange
-
   label
     display: inline-block
     position: absolute
@@ -23,9 +13,11 @@
     margin-left: -220px
     color: $light-blue
 
-  input,
+  input
+    height: 40px
+
   label
-    padding: $space/2 0
+    line-height: 40px
 
   .actions
     float: right

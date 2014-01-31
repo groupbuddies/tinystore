@@ -680,7 +680,6 @@ function loadAsyncContent(wizard, options, state)
  **/
 function paginationClick(wizard, options, state, index)
 {
-  debugger
     var oldIndex = state.currentIndex;
 
     if (index >= 0 && index < state.stepCount && !(options.forceMoveForward && index < state.currentIndex))
@@ -720,7 +719,7 @@ function paginationClickHandler(event)
     event.preventDefault();
 
     var anchor = $(this),
-        wizard = anchor.parent().parent().parent().parent(),
+        wizard = anchor.closest('form')
         options = getOptions(wizard),
         state = getState(wizard),
         href = anchor.attr("href");

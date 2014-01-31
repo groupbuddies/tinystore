@@ -1,10 +1,7 @@
 class PagesController < ApplicationController
 
-  layout 'uikit', only: :uikit
+  layout 'landing'
 
   def index
-  end
-
-  def uikit
   end
 end

@@ -1,0 +1,30 @@
+en:
+  formtastic:
+    titles:
+      create_account: Create account
+      create_store: Create store
+      register: That's it
+
+    labels:
+      user:
+        new:
+          name: Your Name
+          email: Your email
+          password: Choose a password
+          password_confirmation: Confirm your password
+
+    hints:
+
+    placeholders:
+      user:
+        name: John Doe
+        email: johndoe@gmail.com
+      store:
+        name: John Doe Store
+        slug: john-doe-store
+        email: johndoe@gmail.com
+        description: "Short description about your store, yourself or your products. Maximum of 140 characters."
+
+    actions:
+      user:
+        create: Go to my store
