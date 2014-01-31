@@ -14,6 +14,8 @@ en:
           password_confirmation: Confirm your password
 
     hints:
+      store:
+        logo: The maximum size allowed for your logo is 200x200px.
 
     placeholders:
       user:

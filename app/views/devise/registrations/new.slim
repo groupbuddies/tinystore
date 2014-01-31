@@ -12,7 +12,7 @@
       = store_form.input :name
       = store_form.input :slug, as: :slug, domain: '.tinystore.com'
       = store_form.input :email
-      = store_form.input :logo
+      = store_form.input :logo, as: :image_with_preview
       = store_form.input :description, input_html: { rows: 4 }
       .actions
         = link_to 'Next', '#next', class: 'btn-main js-step-next'
@@ -23,3 +23,4 @@
   coffee:
     $ ->
       $('#new_user').registrationWizard()
+      $('#new_user').fileUploadProxy()

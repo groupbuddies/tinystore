@@ -8,12 +8,14 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 
+gem 'carrierwave', '~> 0.9.0'
 gem 'compass-rails'
 gem 'formtastic'
 gem 'devise', '~> 3.2.2'
 gem 'devise-i18n'
 gem 'jquery-ui-rails'
 gem 'normalize-rails', '~> 2.1.3'
+gem 'rmagick'
 gem 'slim-rails'
 
 group :production do

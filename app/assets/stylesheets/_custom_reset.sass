@@ -3,6 +3,9 @@
 html
   -webkit-font-smoothing: antialiased
 
+*
+  +box-sizing(border-box)
+
 .formtastic ol
   list-style-type: none
   abbr
@@ -24,9 +27,7 @@ input[type=text],
 input[type=password],
 input[type=email],
 textarea
-  +box-sizing(border-box)
   border: solid 1px $light-blue
-  margin-bottom: 20px
   font-size: $text-size
   &:focus
     border-color: $orange
