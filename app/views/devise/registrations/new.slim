@@ -18,7 +18,9 @@
         = link_to 'Next', '#next', class: 'btn-main js-step-next'
 
     = form.actions name: t('formtastic.titles.register')
-      = form.action :submit, label: t('registrations.new.submit'), input_html: { class: 'btn-main' }
+      p.registration-message = t('registrations.new.congrats')
+      p.registration-message = t('registrations.new.excited')
+      = form.action :submit, button_html: { class: 'btn-main' }
 
   coffee:
     $ ->

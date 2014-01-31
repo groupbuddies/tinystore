@@ -38,5 +38,16 @@
   .image_with_preview
     margin-bottom: 20px
 
-  .actions
+  fieldset .actions
     float: right
+
+  fieldset.actions
+    text-align: center
+    .registration-message
+      font-size: $title-size
+      line-height: 30px
+      &:first-child
+        margin-top: $space * 4
+
+    input[type=submit]
+      margin-top: $space

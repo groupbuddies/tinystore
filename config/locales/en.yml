@@ -1,4 +1,5 @@
 en:
   registrations:
     new:
-      submit: 'Register'
+      congrats: Congratulations for creating your store.
+      excited: We're excited to have you on board!
