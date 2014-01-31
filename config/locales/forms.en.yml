@@ -12,6 +12,13 @@ en:
           email: Your email
           password: Choose a password
           password_confirmation: Confirm your password
+      store:
+        new:
+          name: Name of the store
+          slug: Your domain
+          email: Email for orders
+          logo: Your logo
+          description: About your store
 
     hints:
       store:
