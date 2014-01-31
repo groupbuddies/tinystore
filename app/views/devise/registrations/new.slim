@@ -10,7 +10,7 @@
 
     = form.inputs :create_store, for: resource.build_store do |store_form|
       = store_form.input :name
-      = store_form.input :slug
+      = store_form.input :slug, as: :slug, domain: '.tinystore.com'
       = store_form.input :email
       = store_form.input :logo
       = store_form.input :description, input_html: { rows: 4 }
