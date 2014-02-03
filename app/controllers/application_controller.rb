@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   before_filter :configure_devise_parameters, if: :devise_controller?
 
   include UrlHelper
+  include ThemeHelper
 
   def after_sign_in_path_for(resource)
-    binding.pry
     store_url(subdomain: resource.store.slug)
   end
 

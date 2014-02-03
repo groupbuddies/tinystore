@@ -1,1 +1,4 @@
-| Store
+- if @products.any?
+  = render 'products', products: @products
+- else
+  = render 'blank_slate'

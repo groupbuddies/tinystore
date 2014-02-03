@@ -3,6 +3,7 @@ require 'carrierwave/orm/activerecord'
 class Store < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :store
+  has_many :products
 
   mount_uploader :logo, StoreLogoUploader
 

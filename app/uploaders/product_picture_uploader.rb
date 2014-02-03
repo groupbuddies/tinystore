@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class StoreLogoUploader < CarrierWave::Uploader::Base
+class ProductPictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   storage :file
@@ -17,19 +17,17 @@ class StoreLogoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    ActionController::Base.helpers.asset_path(File.join('fallback/store', 'logo_' + version_name.to_s + '.png'))
+    ActionController::Base.helpers.asset_path(File.join('fallback/product', 'picture_' + version_name.to_s + '.png'))
   end
 
   # Process files as they are uploaded:
   process :resize_to_limit => [200, 200]
 
-  version :header do
-    process :resize_to_limit => [100, 100]
-  end
+  version :index
+
   version :preview do
     process :resize_to_limit => [100, 100]
   end
-
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

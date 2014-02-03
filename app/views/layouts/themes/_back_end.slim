@@ -1,0 +1,12 @@
+body class="theme-#{current_theme}"
+  #root
+    header#header
+      .logo = image_tag 'logo.png'
+    - flash.each do |key, value|
+      .flash class=(key)
+        = value
+    section#content
+      == yield
+    #root-footer
+  footer#footer
+    = render '/layouts/footer'

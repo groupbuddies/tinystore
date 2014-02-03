@@ -1,14 +1,4 @@
 doctype html
 html
-  head
-    = render '/layouts/head'
-  body.theme-back_end
-    #root
-      header#header
-        = render '/layouts/header'
-      = render '/layouts/flash'
-      section#content
-        == yield
-      #root-footer
-    footer#footer
-      = render '/layouts/footer'
+  = render '/layouts/head'
+  = render "/layouts/themes/#{current_theme}"

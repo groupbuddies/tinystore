@@ -5,6 +5,7 @@ Tinystore::Application.routes.draw do
 
   constraints(SubdomainConstraint) do
     root to: 'stores#show', as: :store
+    resources :products
   end
 
   root to: 'pages#index'

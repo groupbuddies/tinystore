@@ -1,0 +1,46 @@
+body
+  color: $black
+
+button,
+input[type=submit]
+  border: none
+  font-size: $text-size
+  cursor: pointer
+
+.formtastic ol
+  list-style-type: none
+  abbr
+    display: none
+
+input,
+input:focus,
+textarea
+  font-family: $front-end-font
+  outline: none
+
+input[type=text],
+input[type=password],
+input[type=email]
+  width: calc(100% - 1px)
+  text-indent: $space
+
+input[type=text],
+input[type=password],
+input[type=email],
+textarea
+  border: solid 1px $black
+  font-size: $text-size
+  &:focus
+    border-color: $black
+
+textarea
+  padding: $space/2 $space
+  padding-left: $space
+  width: calc(100% - 1px - #{$space})
+  width: 100%
+  resize: none
+
+input
+  @include input-placeholder
+    color: $black
+    font-style: italic

@@ -1,0 +1,10 @@
+body class="theme-#{current_theme}"
+  header#header
+    .logo = image_tag current_store.logo.url(:preview)
+    hr
+    p.store-description = current_store.description
+  - flash.each do |key, value|
+    .flash class=(key)
+      = value
+  section#content
+    == yield
