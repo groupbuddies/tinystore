@@ -5,6 +5,17 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_devise_parameters, if: :devise_controller?
 
+  include UrlHelper
+
+  def after_sign_in_path_for(resource)
+    binding.pry
+    store_url(subdomain: resource.store.slug)
+  end
+
+  def after_sign_up_path_for(resource)
+    store_url(subdomain: resource.store.slug)
+  end
+
   protected
 
   def configure_devise_parameters

@@ -1,5 +1,5 @@
 .session-form-page
-  = semantic_form_for resource, as: resource_name, url: registration_path(resource_name) do |form|
+  = semantic_form_for [resource_name, resource], url: registration_path(resource_name) do |form|
     = form.inputs :create_account
       = form.input :name
       = form.input :email
@@ -8,14 +8,15 @@
       .actions
         = link_to t('registrations.new.next'), '#next', class: 'btn-main js-step-next'
 
-    = form.inputs :create_store, for: resource.build_store do |store_form|
-      = store_form.input :name
-      = store_form.input :slug, as: :slug, domain: '.tinystore.com'
-      = store_form.input :email
-      = store_form.input :logo, as: :image_with_preview
-      = store_form.input :description, input_html: { rows: 4 }
-      .actions
-        = link_to t('registrations.new.next'), '#next', class: 'btn-main js-step-next'
+    = form.semantic_fields_for :store do |store_form|
+      = form.inputs :create_store
+        = store_form.input :name
+        = store_form.input :slug, as: :slug, domain: '.tinystore.com'
+        = store_form.input :email
+        = store_form.input :logo, as: :image_with_preview
+        = store_form.input :description, input_html: { rows: 4 }
+        .actions
+          = link_to t('registrations.new.next'), '#next', class: 'btn-main js-step-next'
 
     = form.actions name: t('formtastic.titles.register')
       p.title.registration-message = t('registrations.new.congrats')

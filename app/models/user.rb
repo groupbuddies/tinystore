@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 
   validates_presence_of :name, :email
 
-  has_one :store
+  has_one :store, inverse_of: :user
   accepts_nested_attributes_for :store
 end
