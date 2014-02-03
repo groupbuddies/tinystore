@@ -3,12 +3,12 @@ html
   head
     = render '/layouts/head'
   body.theme-back_end
-    .landing-root
-      header.landing-header
+    #root
+      header#header
         = render '/layouts/header'
       = render '/layouts/flash'
-      .landing-content
+      section#content
         == yield
-      .landing-root-footer
-    footer.landing-footer
+      #root-footer
+    footer#footer
       = render '/layouts/footer'
