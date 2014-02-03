@@ -6,7 +6,7 @@
       = form.input :password
       = form.input :password_confirmation
       .actions
-        = link_to 'Next', '#next', class: 'btn-main js-step-next'
+        = link_to t('registrations.new.next'), '#next', class: 'btn-main js-step-next'
 
     = form.inputs :create_store, for: resource.build_store do |store_form|
       = store_form.input :name
@@ -15,7 +15,7 @@
       = store_form.input :logo, as: :image_with_preview
       = store_form.input :description, input_html: { rows: 4 }
       .actions
-        = link_to 'Next', '#next', class: 'btn-main js-step-next'
+        = link_to t('registrations.new.next'), '#next', class: 'btn-main js-step-next'
 
     = form.actions name: t('formtastic.titles.register')
       p.title.registration-message = t('registrations.new.congrats')

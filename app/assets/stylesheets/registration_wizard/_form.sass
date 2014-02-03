@@ -5,19 +5,23 @@
   legend
     display: none
 
-  label
+  label,
+  .inline-errors
     display: inline-block
     position: absolute
-    text-align: right
     width: 200px
-    margin-left: -220px
     color: $light-blue
+    line-height: 40px
+
+  label
+    margin-left: -220px
+    text-align: right
+
+  .inline-errors
+    margin-left: 10px
 
   input
     height: 40px
-
-  label
-    line-height: 40px
 
   .slug-input
     width: 150px
@@ -31,11 +35,7 @@
   input[type=file]:before
     display: none
 
-  input[type=text],
-  input[type=password],
-  input[type=email],
-  textarea,
-  .image_with_preview
+  li.input
     margin-bottom: 20px
 
   fieldset .actions

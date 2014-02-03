@@ -22,7 +22,7 @@ en:
 
     hints:
       store:
-        logo: The maximum size allowed for your logo is 200x200px.
+        logo: Your logo will be resized to 200x200px
 
     placeholders:
       user:
@@ -32,7 +32,7 @@ en:
         name: John Doe Store
         slug: john-doe-store
         email: johndoe@gmail.com
-        description: "Short description about your store, yourself or your products. Maximum of 140 characters."
+        description: Short description about your store, yourself or your products. Maximum of 140 characters.
 
     actions:
       user:
