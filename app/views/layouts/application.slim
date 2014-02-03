@@ -1,7 +1,14 @@
-doctype
+doctype html
 html
   head
     = render '/layouts/head'
-  body
-    = render '/layouts/flash'
-    == yield
+  body.theme-back_end
+    .landing-root
+      header.landing-header
+        = render '/layouts/header'
+      = render '/layouts/flash'
+      .landing-content
+        == yield
+      .landing-root-footer
+    footer.landing-footer
+      = render '/layouts/footer'

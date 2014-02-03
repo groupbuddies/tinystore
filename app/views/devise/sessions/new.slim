@@ -1,0 +1,10 @@
+= semantic_form_for resource, as: resource_name, url: session_path(resource_name) do |form|
+  = form.input :email
+  = form.input :password
+  = form.input :password_field
+
+  - if devise_mapping.rememberable?
+    = form.input :remember_me
+
+  = form.actions
+    = form.action :submit, button_html: { class: 'btn-main' }
