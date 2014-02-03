@@ -1,4 +1,11 @@
-.user.wizard
+.session-form-page
+  max-width: $registration-form-width
+  margin: auto
+  margin-top: $space * 2
+
+  .wizard .content
+    margin: $space*2 0
+
   fieldset
     border: none
     padding: 0
@@ -16,6 +23,11 @@
   label
     margin-left: -220px
     text-align: right
+
+  .boolean label
+    position: relative
+    margin-left: 0
+    text-align: left
 
   .inline-errors
     margin-left: 10px
@@ -38,10 +50,11 @@
   li.input
     margin-bottom: 20px
 
-  fieldset .actions
+  fieldset .actions,
+  fieldset.actions li
     float: right
 
-  fieldset.actions
+  .user.wizard fieldset.actions
     text-align: center
     .registration-message
       line-height: 30px
