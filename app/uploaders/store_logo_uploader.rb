@@ -17,7 +17,7 @@ class StoreLogoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    ActionController::Base.helpers.asset_path(File.join('fallback/store', 'logo_' + version_name.to_s + '.png'))
+    ActionController::Base.helpers.asset_path(File.join('fallback/store', 'logo-' + version_name.to_s + '.png'))
   end
 
   # Process files as they are uploaded:

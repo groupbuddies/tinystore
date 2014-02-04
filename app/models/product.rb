@@ -4,4 +4,7 @@ class Product < ActiveRecord::Base
   mount_uploader :picture, ProductPictureUploader
 
   monetize :price_cents
+
+  validates_presence_of :name, :price
+  validates :description, length: { maximum: 140 }
 end

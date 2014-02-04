@@ -7,7 +7,8 @@ class Store < ActiveRecord::Base
 
   mount_uploader :logo, StoreLogoUploader
 
-  validates_presence_of :name, :user, :slug
+  validates_presence_of :name, :slug
   validates_uniqueness_of :slug
+  validates :description, length: { maximum: 140 }
 
 end

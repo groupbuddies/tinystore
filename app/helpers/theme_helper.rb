@@ -1,4 +1,5 @@
 module ThemeHelper
+
   def theme(theme)
     @_theme = theme
   end

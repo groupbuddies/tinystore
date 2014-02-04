@@ -17,7 +17,8 @@ feature 'Sign Up', js: true do
       form_submit
     end
 
-    has_notice_flash
+    save_and_open_page
+    page.should have_css '.theme-default'
   end
 
   scenario 'with empty password' do
@@ -65,9 +66,9 @@ feature 'Sign Up', js: true do
   end
 
   def fill_store_data
-    fill_in :user_store_name, with: 'My Store'
-    fill_in :user_store_slug, with: 'mystore'
-    fill_in :user_store_email, with: 'store@email.com'
-    fill_in :user_store_description, with: 'A description'
+    fill_in :user_store_attributes_name, with: 'My Store'
+    fill_in :user_store_attributes_slug, with: 'mystore'
+    fill_in :user_store_attributes_email, with: 'store@email.com'
+    fill_in :user_store_attributes_description, with: 'A description'
   end
 end

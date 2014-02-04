@@ -1,0 +1,9 @@
+h1.title Well done! There's a new product on your store
+
+.product-show
+  = render '/products/product', product: @product
+
+  .product-actions
+    = link_to 'Proceed to the store', store_path, class: 'btn-main'
+    = link_to 'Edit this product', edit_manager_product_path(@product), class: 'btn-secondary'
+    = link_to 'Add more products', new_manager_product_path(@product), class: 'btn-secondary'

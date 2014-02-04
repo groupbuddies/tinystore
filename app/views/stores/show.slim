@@ -1,4 +1,4 @@
 - if @products.any?
-  = render 'products', products: @products
+  = render partial: '/products/product', collection: @products
 - else
   = render 'blank_slate'

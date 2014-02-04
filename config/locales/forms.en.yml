@@ -7,22 +7,27 @@ en:
 
     labels:
       user:
-        new:
-          name: Your Name
-          email: Your email
-          password: Choose a password
-          password_confirmation: Confirm your password
+        name: Your Name
+        email: Your email
+        password: Choose a password
+        password_confirmation: Confirm your password
       store:
-        new:
-          name: Name of the store
-          slug: Your domain
-          email: Email for orders
-          logo: Your logo
-          description: About your store
+        name: Name of the store
+        slug: Your domain
+        email: Email for orders
+        logo: Your logo
+        description: About your store
+      product:
+        name: Name of the product
+        price: Price
+        picture: Hero shot of your product
+        description: Description of the product
 
     hints:
       store:
-        logo: Your logo will be resized to 200x200px
+        logo: Your logo will be resized to 200x200px.
+      product:
+        picture: Your hero shot will be resized to fit 300x400px.
 
     placeholders:
       user:
@@ -33,7 +38,13 @@ en:
         slug: john-doe-store
         email: johndoe@gmail.com
         description: Short description about your store, yourself or your products. Maximum of 140 characters.
+      product:
+        name: Apple Macbook Air
+        price: Price tag
+        description: Short description about the product. Maximum of 140 characters.
 
     actions:
       user:
         create: Go to my store
+      product:
+        create: Create product

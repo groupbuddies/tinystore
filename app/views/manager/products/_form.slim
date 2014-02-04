@@ -1,0 +1,10 @@
+.back-end-form
+  = semantic_form_for [:manager, @product] do |form|
+    = form.inputs :product
+      = form.input :name
+      = form.input :price, as: :price
+      = form.input :picture, as: :image_with_preview
+      = form.input :description, as: :text, input_html: { rows: 4 }
+
+    = form.actions
+      = form.action :submit, button_html: { class: 'btn-main' }

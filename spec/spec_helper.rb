@@ -4,6 +4,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
 require 'factory_girl'
+require 'pry-rails'
 FactoryGirl.find_definitions
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -11,6 +12,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 Capybara.javascript_driver = :webkit
+
+DEFAULT_HOST = 'lvh.me'
+DEFAULT_PORT = 9887
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
@@ -21,4 +25,10 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include FlashHelpers, type: :feature
   config.include FormHelpers, type: :feature
+  config.include StoreHelpers, type: :feature
+
+
+  Capybara.default_host = "http://#{DEFAULT_HOST}"
+  Capybara.server_port = DEFAULT_PORT
+  Capybara.app_host = "http://#{DEFAULT_HOST}:#{DEFAULT_PORT}"
 end

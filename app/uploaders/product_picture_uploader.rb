@@ -17,14 +17,13 @@ class ProductPictureUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   def default_url
-    ActionController::Base.helpers.asset_path(File.join('fallback/product', 'picture_' + version_name.to_s + '.png'))
+    ActionController::Base.helpers.asset_path(File.join('fallback/product', 'picture-' + version_name.to_s + '.png'))
   end
 
   # Process files as they are uploaded:
-  process :resize_to_limit => [200, 200]
+  process :resize_to_limit => [300, 400]
 
-  version :index
-
+  version :large
   version :preview do
     process :resize_to_limit => [100, 100]
   end

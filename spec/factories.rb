@@ -4,6 +4,8 @@ FactoryGirl.define do
     sequence(:name) { |i| "#{i} user" }
     sequence(:email) { |i| "#{i}@email.com" }
     password 'password'
+    confirmed_at { Time.now }
+    store
 
     factory :confirmed_user do
       confirmed_at { Time.now }

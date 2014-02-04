@@ -5,7 +5,11 @@ Tinystore::Application.routes.draw do
 
   constraints(SubdomainConstraint) do
     root to: 'stores#show', as: :store
-    resources :products
+    resources :products, only: [:show]
+
+    namespace :manager do
+      resources :products, only: [:show, :new, :create, :edit, :update]
+    end
   end
 
   root to: 'pages#index'
