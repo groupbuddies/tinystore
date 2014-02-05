@@ -8,3 +8,7 @@
 
     = form.actions
       = form.action :submit, button_html: { class: 'btn-main' }
+  coffee:
+    $ ->
+      $('#new_product').fileUploadProxy()
+      $('#new_product').imageUploadPreview()
