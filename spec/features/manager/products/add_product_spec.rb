@@ -27,4 +27,14 @@ feature 'Add a product' do
 
     page.should have_css '.product-show'
   end
+
+  scenario 'Add an invalid product' do
+    visit new_manager_product_path
+
+    within 'form' do
+      form_submit
+    end
+
+    has_form_errors
+  end
 end

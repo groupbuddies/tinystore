@@ -13,4 +13,8 @@ module StoreHelpers
     subdomain = "#{subdomain}." unless subdomain.empty?
     Capybara.app_host = "http://#{subdomain}#{DEFAULT_HOST}:#{DEFAULT_PORT}"
   end
+
+  def is_in_store(store)
+    current_url.should match store.slug
+  end
 end

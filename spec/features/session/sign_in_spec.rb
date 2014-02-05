@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Sign In' do
   let(:password) { 'a_password' }
-  let(:user) { create(:confirmed_user, password: password) }
+  let(:user) { create(:user_with_store, password: password) }
 
   before :each do
     user
@@ -16,6 +16,6 @@ feature 'Sign In' do
       form_submit
     end
 
-    has_notice_flash
+    current_url.should match user.store.slug
   end
 end

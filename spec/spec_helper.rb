@@ -5,6 +5,7 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'factory_girl'
 require 'pry-rails'
+require 'database_cleaner'
 FactoryGirl.find_definitions
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -31,4 +32,17 @@ RSpec.configure do |config|
   Capybara.default_host = "http://#{DEFAULT_HOST}"
   Capybara.server_port = DEFAULT_PORT
   Capybara.app_host = "http://#{DEFAULT_HOST}:#{DEFAULT_PORT}"
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

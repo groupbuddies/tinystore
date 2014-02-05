@@ -18,7 +18,7 @@ class Manager::ProductsController < Manager::ApplicationController
     if @product.save
       respond_with [:manager, @product]
     else
-      render :show
+      render :new
     end
   end
 

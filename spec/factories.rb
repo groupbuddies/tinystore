@@ -7,8 +7,9 @@ FactoryGirl.define do
     confirmed_at { Time.now }
     store
 
-    factory :confirmed_user do
+    factory :user_with_store do
       confirmed_at { Time.now }
+      store
     end
   end
 

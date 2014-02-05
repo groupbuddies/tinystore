@@ -17,8 +17,7 @@ feature 'Sign Up', js: true do
       form_submit
     end
 
-    save_and_open_page
-    page.should have_css '.theme-default'
+    has_notice_flash
   end
 
   scenario 'with empty password' do
@@ -26,7 +25,7 @@ feature 'Sign Up', js: true do
 
     within 'form' do
       fill_in :user_name, with: 'Miguel Palhas'
-      fill_in :user_email, with: 'anemail.com'
+      fill_in :user_email, with: 'an@email.com'
       next_step
       fill_store_data
       next_step
