@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     store_url(subdomain: resource.store.slug)
   end
 
+  def after_sign_out_path_for(resource)
+    root_url(subdomain: '')
+  end
+
   protected
 
   def configure_devise_parameters
