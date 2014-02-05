@@ -17,3 +17,33 @@
       width: 200px
       height: 200px
       vertical-align: middle
+
+.product
+  display: inline-block
+  margin: 2rem
+  text-align: center
+  p,
+  h2
+    margin: $space
+  .product-picture
+    +single-box-shadow($color: $gray)
+    width: 300px
+    height: 400px
+  .product-name,
+  .product-price
+    font-size: $title-size
+  .product-description
+    font-family: $title-font
+  .product-price
+    &:after
+      content: "€"
+
+.product-actions
+  margin-left: $space
+  .btn-main,
+  .btn-secondary
+    display: block
+    width: 200px
+    margin-bottom: $space
+    padding-left: 0
+    padding-right: 0
