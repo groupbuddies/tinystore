@@ -1,6 +1,13 @@
 body class="theme-#{current_theme}"
   header#header
-    .logo = image_tag current_store.logo.url(:preview)
+    .top-row
+      .logo = image_tag current_store.logo.url(:preview)
+      nav#nav
+        - if current_user.present?
+          = link_to t('nav.admin'), '#', class: 'btn-main'
+          = link_to t('nav.sign_out'), destroy_user_session_path, class: 'btn-secondary'
+        - else
+          = link_to t('nav.cart'), '#', class: 'btn-main'
     hr
     p.store-description = current_store.description
   - flash.each do |key, value|

@@ -11,3 +11,9 @@ en:
         success: Well done! There's a new product on your store.
       edit:
         success: Product successfully edited.
+
+  nav:
+    admin: Admin
+    cart: My cart
+    sign_out: Sign Out
+      
