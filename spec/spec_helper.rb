@@ -29,9 +29,6 @@ RSpec.configure do |config|
   config.include StoreHelpers, type: :feature
 
 
-  Capybara.default_host = "http://#{DEFAULT_HOST}"
-  Capybara.server_port = DEFAULT_PORT
-  Capybara.app_host = "http://#{DEFAULT_HOST}:#{DEFAULT_PORT}"
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
@@ -40,6 +37,9 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    Capybara.default_host = "http://#{DEFAULT_HOST}"
+    Capybara.server_port = DEFAULT_PORT
+    Capybara.app_host = "http://#{DEFAULT_HOST}:#{DEFAULT_PORT}"
   end
 
   config.after(:each) do
