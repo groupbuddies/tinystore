@@ -4,3 +4,10 @@ en:
       congrats: Congratulations for creating your store.
       excited: We're excited to have you on board!
       next: Next
+
+  manager:
+    products:
+      create:
+        success: Well done! There's a new product on your store.
+      edit:
+        success: Product successfully edited.

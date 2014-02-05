@@ -19,4 +19,10 @@ FactoryGirl.define do
     sequence(:slug) { |i| "#{i}slug" }
   end
 
+  factory :product do
+    sequence(:name) { |i| "#{i} product" }
+    price '2.50'
+    sequence(:description) { |i| "#{i} description" }
+  end
+
 end
