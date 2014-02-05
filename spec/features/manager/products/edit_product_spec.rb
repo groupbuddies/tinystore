@@ -32,11 +32,11 @@ feature 'Edit a product' do
     has_form_errors
   end
 
-  scenario 'Add a picture', js: true do
-    visit edit_manager_product_path(product)
+  # scenario 'Add a picture', js: true do
+  #   visit edit_manager_product_path(product)
 
     # within 'form' do
     #   attach_file(:product_picture, Rails.root.join('spec/fixtures/product_picture.jpg'))
     # end
-  end
+  # end
 end

@@ -4,8 +4,8 @@ module StoreHelpers
 
   def setup_store
     user = create :user
-    login_as(user)
     switch_to_subdomain(user.store.slug)
+    login_as(user)
     user.store
   end
 
