@@ -17,9 +17,7 @@ feature 'Sign Up', js: true do
       form_submit
     end
 
-    puts page.body
     has_notice_flash
-    puts page.body
   end
 
   scenario 'with empty password' do
