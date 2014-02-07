@@ -3,3 +3,6 @@
   h2.product-name = product.name
   p.product-description = product.description
   p.product-price = product.price
+
+  .product-actions
+    = link_to 'Add to cart', add_to_cart_path(product_id: product.id), method: :post

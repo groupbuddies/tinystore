@@ -1,5 +1,4 @@
-module StoreHelpers
-
+module CapybaraStoreHelpers
   attr_accessor :current_store
 
   def setup_store(user = create(:user))

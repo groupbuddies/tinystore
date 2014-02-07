@@ -15,7 +15,7 @@ module UrlHelper
     Store.where(slug: request.subdomain).first
   end
 
-  def in_store?
+  def is_in_store
     redirect_to root_url unless current_store.present?
   end
 end

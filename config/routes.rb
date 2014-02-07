@@ -10,6 +10,8 @@ Tinystore::Application.routes.draw do
     namespace :manager do
       resources :products, only: [:show, :new, :create, :edit, :update]
     end
+
+    resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
   root to: 'pages#index'

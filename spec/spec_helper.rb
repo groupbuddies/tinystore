@@ -25,9 +25,8 @@ RSpec.configure do |config|
   config.include WardenHelpers, type: :feature
   config.include FactoryGirl::Syntax::Methods
   config.include FormHelpers, type: :feature
-  config.include StoreHelpers, type: :feature
-
-
+  config.include CapybaraStoreHelpers, type: :feature
+  config.include Devise::TestHelpers, type: :controller
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
@@ -37,10 +36,20 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    Warden.test_reset!
+  end
+
+  config.before(:each, type: :feature) do
     Capybara.default_host = "http://#{DEFAULT_HOST}"
     Capybara.server_port = DEFAULT_PORT
     Capybara.app_host = "http://#{DEFAULT_HOST}:#{DEFAULT_PORT}"
-    Warden.test_reset!
+  end
+
+  config.before(:each, type: :controller) do
+    user = create(:user)
+    sign_in user
+    @original_host ||= @request.host
+    @request.host = "#{user.store.slug}.#{@original_host}"
   end
 
   config.after(:each) do

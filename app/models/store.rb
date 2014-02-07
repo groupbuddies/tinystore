@@ -4,6 +4,7 @@ class Store < ActiveRecord::Base
 
   belongs_to :user, inverse_of: :store
   has_many :products
+  has_many :carts
 
   mount_uploader :logo, StoreLogoUploader
 

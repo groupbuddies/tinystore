@@ -16,4 +16,6 @@ en:
     admin: Admin
     cart: My cart
     sign_out: Sign Out
-      
+
+  products:
+    add_to_cart: Add to cart

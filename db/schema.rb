@@ -11,24 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203162230) do
+ActiveRecord::Schema.define(version: 20140207115831) do
+
+  create_table "cart_items", force: true do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "carts", force: true do |t|
+    t.integer  "store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
-    t.integer "store_id"
-    t.string  "name",                           null: false
-    t.integer "price_cents",    default: 0,     null: false
-    t.string  "price_currency", default: "USD", null: false
-    t.string  "picture"
-    t.string  "description",                    null: false
+    t.integer  "store_id"
+    t.string   "name",                           null: false
+    t.integer  "price_cents",    default: 0,     null: false
+    t.string   "price_currency", default: "USD", null: false
+    t.string   "picture"
+    t.string   "description",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "stores", force: true do |t|
-    t.integer "user_id"
-    t.string  "name",        null: false
-    t.string  "slug",        null: false
-    t.string  "email",       null: false
-    t.string  "logo"
-    t.text    "description"
+    t.integer  "user_id"
+    t.string   "name",        null: false
+    t.string   "slug",        null: false
+    t.string   "email",       null: false
+    t.string   "logo"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
