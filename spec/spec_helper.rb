@@ -24,7 +24,6 @@ RSpec.configure do |config|
   config.include I18n
   config.include WardenHelpers, type: :feature
   config.include FactoryGirl::Syntax::Methods
-  config.include FlashHelpers, type: :feature
   config.include FormHelpers, type: :feature
   config.include StoreHelpers, type: :feature
 
@@ -33,6 +32,7 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with(:truncation)
+    Warden.test_mode!
   end
 
   config.before(:each) do
@@ -40,6 +40,7 @@ RSpec.configure do |config|
     Capybara.default_host = "http://#{DEFAULT_HOST}"
     Capybara.server_port = DEFAULT_PORT
     Capybara.app_host = "http://#{DEFAULT_HOST}:#{DEFAULT_PORT}"
+    Warden.test_reset!
   end
 
   config.after(:each) do

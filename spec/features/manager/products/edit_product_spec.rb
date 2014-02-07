@@ -1,13 +1,12 @@
 require 'spec_helper'
 
 feature 'Edit a product' do
-  let(:store) { setup_store }
+  let!(:store) { setup_store }
   let(:product) { create(:product, store: store) }
 
-  before(:each) do
+  before(:all) do
     PriceInput
     ImageWithPreviewInput
-    setup_store
   end
 
   scenario 'Edit with valid data' do
@@ -18,7 +17,7 @@ feature 'Edit a product' do
       form_submit
     end
 
-    has_notice_flash
+    page.should have_flash :notice
   end
 
   scenario 'With invalid data' do
@@ -29,6 +28,6 @@ feature 'Edit a product' do
       form_submit
     end
 
-    has_form_errors
+    page.should have_form_errors
   end
 end

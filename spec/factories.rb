@@ -6,11 +6,6 @@ FactoryGirl.define do
     password 'password'
     confirmed_at { Time.now }
     store
-
-    factory :user_with_store do
-      confirmed_at { Time.now }
-      store
-    end
   end
 
   factory :store do

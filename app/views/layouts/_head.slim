@@ -2,8 +2,9 @@ head
   title = content_for?(:title) ? content_for(:title) : 'Tinystore'
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
-  = javascript_include_tag '//use.typekit.net/rdi3jqp.js', 'data-turbolinks-track' => true
-  script data-turbolinks-track="true"
-    | try{Typekit.load();}catch(e){};
+  - unless Rails.env.test?
+    = javascript_include_tag '//use.typekit.net/rdi3jqp.js', 'data-turbolinks-track' => true
+    script data-turbolinks-track="true"
+      | try{Typekit.load();}catch(e){};
 
   = csrf_meta_tags

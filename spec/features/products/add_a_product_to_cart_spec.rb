@@ -1,11 +1,12 @@
 require 'spec_helper'
 
-feature 'Add a product' do
-  let!(:store) { setup_store }
+feature 'Add a product to the cart' do
+  let(:store) { setup_store }
 
   before(:each) do
     PriceInput
     ImageWithPreviewInput
+    setup_store
   end
 
   scenario 'No products yet' do

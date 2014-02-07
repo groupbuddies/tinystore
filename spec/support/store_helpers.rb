@@ -2,8 +2,7 @@ module StoreHelpers
 
   attr_accessor :current_store
 
-  def setup_store
-    user = create :user
+  def setup_store(user = create(:user))
     switch_to_subdomain(user.store.slug)
     login_as(user)
     user.store

@@ -17,7 +17,7 @@ feature 'Sign Up', js: true do
       form_submit
     end
 
-    has_notice_flash
+    page.should have_flash(:notice)
   end
 
   scenario 'with empty password' do
@@ -32,7 +32,7 @@ feature 'Sign Up', js: true do
       form_submit
     end
 
-    has_form_errors
+    page.should have_form_errors
   end
 
   scenario 'with existing email' do
@@ -48,7 +48,7 @@ feature 'Sign Up', js: true do
       form_submit
     end
 
-    has_form_errors
+    page.should have_form_errors
   end
 
   private

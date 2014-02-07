@@ -2,11 +2,7 @@ require 'spec_helper'
 
 feature 'Sign In' do
   let(:password) { 'a_password' }
-  let(:user) { create(:user_with_store, password: password) }
-
-  before :each do
-    user
-  end
+  let!(:user) { create(:user, password: password) }
 
   scenario 'regular sign in' do
     visit new_user_session_path
