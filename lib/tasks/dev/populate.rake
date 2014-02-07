@@ -20,5 +20,14 @@ namespace :dev do
         description: 'Aqui vendem-se natas'
       }
     )
+
+    puts 'Creating products'
+    2.times do |i|
+      user.store.products.create(
+        name: "Produto #{i}",
+        price: '1.50',
+        description: "Description #{i}"
+      )
+    end
   end
 end

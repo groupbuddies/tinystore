@@ -7,7 +7,7 @@ describe CartItemsController do
   describe 'POST /cart_items' do
     it 'creates a cart if there is none' do
       expect {
-        post :create, cart_item: { product_id: products[0].id }
+        post :create, product_id: products[0].id
       }.to change { Cart.count }.by(1)
     end
 
@@ -15,13 +15,13 @@ describe CartItemsController do
       stub_current_cart
 
       expect {
-        post :create, cart_item: { product_id: products[1].id }
+        post :create, product_id: products[1].id
       }.to_not change { Cart.count }
     end
 
     it 'adds products to the cart' do
       expect {
-        post :create, cart_item: { product_id: products[0].id }
+        post :create, product_id: products[0].id
       }.to change { CartItem.count }.by(1)
     end
   end
@@ -41,7 +41,7 @@ describe CartItemsController do
       cart = stub_current_cart
 
       expect {
-        patch :update, id: cart.items.first.id, cart_item: { amount: 2 }
+        patch :update, id: cart.items.first.id, amount: 2
       }.to change { cart.items.first.amount }
     end
   end

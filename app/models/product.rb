@@ -7,4 +7,5 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :name, :price
   validates :description, length: { maximum: 140 }
+  validates :price, numericality: { greater_than: 0 }
 end

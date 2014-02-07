@@ -7,7 +7,7 @@ body class="theme-#{current_theme}"
           = link_to t('nav.admin'), '#', class: 'btn-main'
           = link_to t('nav.sign_out'), destroy_user_session_path, class: 'btn-secondary'
         - else
-          = link_to t('nav.cart'), '#', class: 'btn-main'
+          = render '/shared/cart_menu'
     hr
     p.store-description = current_store.description
   - flash.each do |key, value|

@@ -3,7 +3,8 @@ class CartItemsController < ApplicationController
 
   # POST /cart_items
   def create
-    current_cart.items.create(cart_item_params)
+    item = current_cart.items.where(product_id: product_id).first_or_initialize
+    item.update_attributes(:amount, (cart_item_params[:amount] || amount))
     redirect_to store_path
   end
 

@@ -6,7 +6,6 @@ class StoresController < ApplicationController
   end
 
   def show
-    binding.pry
     @products = current_store.products
   end
 end

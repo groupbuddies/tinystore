@@ -12,7 +12,7 @@ module UrlHelper
   end
 
   def current_store
-    Store.where(slug: request.subdomain).first
+    @current_store ||= Store.where(slug: request.subdomain).first
   end
 
   def is_in_store

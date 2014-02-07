@@ -1,7 +1,11 @@
 body class="theme-#{current_theme}"
   #root
     header#header
-      .logo = image_tag 'logo.png'
+      .top-row
+        .logo = image_tag 'logo.png'
+        nav#nav
+          - if current_store
+            = link_to 'Back to store', class: 'btn-secondary'
     .flashes
       - flash.each do |key, value|
         .title.flash class=(key) = value

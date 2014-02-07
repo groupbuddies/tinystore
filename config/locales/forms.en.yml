@@ -22,6 +22,8 @@ en:
         price: Price
         picture: Hero shot of your product
         description: Description of the product
+      cart_item:
+        amount: Qty
 
     hints:
       store:
@@ -42,9 +44,13 @@ en:
         name: Apple Macbook Air
         price: Price tag
         description: Short description about the product. Maximum of 140 characters.
+      cart_item:
+        amount: 0
 
     actions:
       user:
         create: Go to my store
       product:
         create: Create product
+      cart_item:
+        update: Update
