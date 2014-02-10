@@ -6,24 +6,28 @@ en:
       register: That's it
 
     labels:
-      user:
-        name: Your Name
-        email: Your email
-        password: Choose a password
-        password_confirmation: Confirm your password
+      cart_item:
+        amount: Qty
+      checkout:
+        client_name: Your name
+        client_email: Your email
+        notes: Notes
+      product:
+        name: Name of the product
+        price: Price
+        picture: Hero shot of your product
+        description: Description of the product
       store:
         name: Name of the store
         slug: Your domain
         email: Email for orders
         logo: Your logo
         description: About your store
-      product:
-        name: Name of the product
-        price: Price
-        picture: Hero shot of your product
-        description: Description of the product
-      cart_item:
-        amount: Qty
+      user:
+        name: Your Name
+        email: Your email
+        password: Choose a password
+        password_confirmation: Confirm your password
 
     hints:
       store:
@@ -32,25 +36,25 @@ en:
         picture: Your hero shot will be resized to fit 300x400px.
 
     placeholders:
-      user:
-        name: John Doe
-        email: johndoe@gmail.com
+      cart_item:
+        amount: 0
+      product:
+        name: Apple Macbook Air
+        price: Price tag
+        description: Short description about the product. Maximum of 140 characters.
       store:
         name: John Doe Store
         slug: john-doe-store
         email: johndoe@gmail.com
         description: Short description about your store, yourself or your products. Maximum of 140 characters.
-      product:
-        name: Apple Macbook Air
-        price: Price tag
-        description: Short description about the product. Maximum of 140 characters.
-      cart_item:
-        amount: 0
+      user:
+        name: John Doe
+        email: johndoe@gmail.com
 
     actions:
-      user:
-        create: Go to my store
-      product:
-        create: Create product
       cart_item:
         update: Update
+      product:
+        create: Create product
+      user:
+        create: Go to my store

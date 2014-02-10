@@ -15,7 +15,12 @@ class CartItem < ActiveRecord::Base
   private
 
   def destroy_if_amount_is_zero
-    destroy if amount < 0
+    if amount <= 0
+      destroy
+      false
+    else
+      true
+    end
   end
 
   def set_initial_amount

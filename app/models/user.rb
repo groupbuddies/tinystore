@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates_presence_of :name, :email
+  validates :email, email: true
 
   has_one :store, inverse_of: :user
   accepts_nested_attributes_for :store

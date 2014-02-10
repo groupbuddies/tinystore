@@ -1,10 +1,4 @@
 = link_to t('nav.cart', price: current_cart.price), '#', class: 'btn-main js-cart-toggler'
 .cart.js-cart-window
-  ul
-    - current_cart.items.each do |item|
-      li.cart-item
-        p = item.product.name
-        = semantic_form_for item, url: cart_item_path(item), method: :patch do |form|
-          = form.inputs
-            = form.input :amount
-          = form.actions :submit
+  = render '/shared/cart_list'
+  = link_to 'Checkout', new_checkout_path

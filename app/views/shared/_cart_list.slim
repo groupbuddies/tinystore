@@ -1,0 +1,8 @@
+ul.cart-list
+  - current_cart.items.each do |item|
+    li.cart-item
+      p = item.product.name
+      = semantic_form_for item, url: cart_item_path(item), method: :patch do |form|
+        = form.inputs
+          = form.input :amount
+        = form.actions :submit

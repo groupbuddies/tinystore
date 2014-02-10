@@ -1,0 +1,11 @@
+h1 Checkout
+
+= render '/shared/cart_list'
+= semantic_form_for @checkout, url: checkout_path do |form|
+  = form.inputs
+    = form.input :client_name
+    = form.input :client_email
+    = form.input :notes
+
+  = form.actions
+    = form.action :submit

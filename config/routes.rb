@@ -12,6 +12,8 @@ Tinystore::Application.routes.draw do
     end
 
     resources :cart_items, only: [:index, :create, :update, :destroy]
+
+    resource :checkout, only: [:new, :create]
   end
 
   root to: 'pages#index'

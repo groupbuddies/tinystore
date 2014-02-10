@@ -1,0 +1,28 @@
+en:
+  checkout:
+    new:
+      empty: There are no items on your cart.
+    create:
+      success: Your order has been processed. Thank you
+
+  manager:
+    products:
+      create:
+        success: Well done! There's a new product on your store.
+      edit:
+        success: Product successfully edited.
+
+  nav:
+    admin: Admin
+    cart: (%{price} €) My cart
+    sign_out: Sign Out
+
+  products:
+    add_to_cart: Add to cart
+
+  registrations:
+    new:
+      congrats: Congratulations for creating your store.
+      excited: We're excited to have you on board!
+      next: Next
+
