@@ -6,6 +6,7 @@ class CartItem < ActiveRecord::Base
   validates_uniqueness_of :product, scope: :cart_id
   validates :amount, numericality: { greater_or_equal_than: 0 }
   after_save :destroy_if_amount_is_zero
+  before_validation :set_initial_amount
 
   def price
     product.price * amount
@@ -14,6 +15,10 @@ class CartItem < ActiveRecord::Base
   private
 
   def destroy_if_amount_is_zero
-    destroy if amount == 0
+    destroy if amount < 0
+  end
+
+  def set_initial_amount
+    self.amount ||= 1
   end
 end

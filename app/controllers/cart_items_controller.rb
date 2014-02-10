@@ -3,14 +3,13 @@ class CartItemsController < ApplicationController
 
   # POST /cart_items
   def create
-    item = current_cart.items.where(product_id: product_id).first_or_initialize
-    item.update_attributes(:amount, (cart_item_params[:amount] || amount))
+    current_cart.items.create(create_cart_item_params)
     redirect_to store_path
   end
 
   # PATCH /cart_items/:product_id/:product_amount
   def update
-    existing_cart_item.update_attributes(amount: cart_item_params[:amount])
+    existing_cart_item.update_attributes(update_cart_item_params)
     redirect_to store_path
   end
 
@@ -26,7 +25,11 @@ class CartItemsController < ApplicationController
     current_cart.items.where(id: params[:id]).first
   end
 
-  def cart_item_params
+  def create_cart_item_params
     params.require(:cart_item).permit(:product_id, :amount)
+  end
+
+  def update_cart_item_params
+    params.require(:cart_item).permit(:amount)
   end
 end
