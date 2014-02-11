@@ -49,6 +49,7 @@ RSpec.configure do |config|
     sign_in user
     @original_host ||= @request.host
     @request.host = "#{user.store.slug}.#{@original_host}"
+    request.env['HTTP_REFERER'] = '/'
   end
 
   config.after(:each) do

@@ -18,6 +18,7 @@ gem 'jquery-ui-rails'
 gem 'money-rails'
 gem 'normalize-rails', '~> 2.1.3'
 gem 'rmagick'
+gem 'roadie', '~> 2.4.3'
 gem 'slim-rails'
 
 group :production do

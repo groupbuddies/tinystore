@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Edit a product' do
-  let!(:store) { setup_store }
+  let!(:store) { setup_store_admin }
   let(:product) { create(:product, store: store) }
 
   before(:all) do

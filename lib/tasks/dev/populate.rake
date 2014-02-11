@@ -22,7 +22,7 @@ namespace :dev do
     )
 
     puts 'Creating products'
-    2.times do |i|
+    5.times do |i|
       user.store.products.create(
         name: "Produto #{i}",
         price: '1.50',

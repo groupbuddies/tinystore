@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210170740) do
+ActiveRecord::Schema.define(version: 20140211164515) do
 
   create_table "cart_items", force: true do |t|
-    t.integer  "cart_id",                null: false
-    t.integer  "product_id",             null: false
-    t.integer  "amount",     default: 1, null: false
+    t.integer  "cart_id",                                null: false
+    t.integer  "product_id",                             null: false
+    t.integer  "amount",                 default: 1,     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "unitary_price_cents",    default: 0,     null: false
+    t.string   "unitary_price_currency", default: "USD", null: false
   end
 
   create_table "carts", force: true do |t|
@@ -28,12 +30,10 @@ ActiveRecord::Schema.define(version: 20140210170740) do
   end
 
   create_table "checkouts", force: true do |t|
-    t.integer  "store_id",                       null: false
-    t.integer  "cart_id",                        null: false
-    t.integer  "price_cents",    default: 0,     null: false
-    t.string   "price_currency", default: "USD", null: false
-    t.string   "client_name",                    null: false
-    t.string   "client_email",                   null: false
+    t.integer  "store_id",     null: false
+    t.integer  "cart_id",      null: false
+    t.string   "client_name",  null: false
+    t.string   "client_email", null: false
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"

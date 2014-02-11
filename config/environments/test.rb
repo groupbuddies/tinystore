@@ -35,4 +35,8 @@ Tinystore::Application.configure do
   config.active_support.deprecation = :stderr
 
   config.action_mailer.default_url_options = { host: 'lvh.me', port: 3000 }
+
+  config.action_mailer.smtp_settings = {
+    user_name: 'test@tinystore.com'
+  }
 end

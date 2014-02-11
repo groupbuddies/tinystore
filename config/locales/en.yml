@@ -1,1 +1,5 @@
 en:
+  nav:
+    admin: Admin
+    cart: My cart
+    sign_out: Sign Out

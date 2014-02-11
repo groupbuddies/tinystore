@@ -1,4 +1,10 @@
-= link_to t('nav.cart', price: current_cart.price), '#', class: 'btn-main js-cart-toggler'
+= link_to '#', class: 'btn-main btn-cart js-cart-toggler'
+  span.cart-price = "(#{current_cart.price})"
+  span = t('nav.cart')
+
 .cart.js-cart-window
-  = render '/shared/cart_list'
-  = link_to 'Checkout', new_checkout_path
+  - if current_cart.items.any?
+    = render '/shared/cart_blank'
+  - else
+    = render '/shared/cart_form', cart: current_cart
+    = link_to 'Checkout', new_checkout_path

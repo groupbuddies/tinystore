@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Edit my cart' do
   let!(:user) { create(:user) }
-  let!(:store) { setup_store(user) }
+  let!(:store) { setup_store }
 
   before(:each) do
     create_list(:product, 2, store: store)
@@ -12,7 +12,7 @@ feature 'Edit my cart' do
     visit store_path
 
     expect {
-      all('.product').first.find(I18n.t('products.add_to_cart')).click
-    }.to change { find('#cart_count') }.by(1)
+      all('.product').first.click_on I18n.t('products.add_to_cart')
+    }.to change { find('.js-cart-toggler') }
   end
 end

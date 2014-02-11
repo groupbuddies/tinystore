@@ -1,10 +1,16 @@
 module CapybaraStoreHelpers
   attr_accessor :current_store
 
-  def setup_store(user = create(:user))
+  def setup_store_admin(user = create(:user))
     switch_to_subdomain(user.store.slug)
     login_as(user)
     user.store
+  end
+
+  def setup_store(user = nil)
+    store = create(:store)
+    switch_to_subdomain(store.slug)
+    store
   end
 
   def switch_to_subdomain(subdomain)

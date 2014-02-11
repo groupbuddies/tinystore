@@ -9,9 +9,8 @@ class CartItemsController < ApplicationController
 
   # PATCH /cart_items/:product_id/:product_amount
   def update
-    binding.pry
     existing_cart_item.update_attributes(update_cart_item_params)
-    redirect_to store_path
+    redirect_to :back
   end
 
   # DELETE /cart/:id

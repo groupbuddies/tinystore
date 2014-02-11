@@ -21,4 +21,8 @@ class CheckoutsController < ApplicationController
   def new_checkout
     Checkout.new(store: current_store, cart: current_cart)
   end
+
+  def checkout_params
+    params.require(:checkout).permit(:client_name, :client_email, :notes)
+  end
 end

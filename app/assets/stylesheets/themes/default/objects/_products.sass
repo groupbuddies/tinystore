@@ -1,18 +1,21 @@
 @import 'compass/css3/box-shadow'
 
+$product-img-width: 300px
+$product-img-height: 400px
+
 .product
   display: inline-block
-  margin: 2rem
+  vertical-align: top
+  margin: 1rem
   text-align: center
   p,
   h2
-    margin: $space
+    margin: 1rem
   .product-picture
-    width: 300px
-    height: 400px
-    line-height: 400px
+    width: $product-img-width
+    height: $product-img-height
+    line-height: $product-img-height
     img
-      vertical-align: middle
       +single-box-shadow($color: $gray)
   .product-name,
   .product-price
@@ -23,8 +26,25 @@
     &:after
       content: "€"
 
-.new-product
-  display: inline-block
-  margin: 2rem
-  text-align: center
+.btn-new-product
 
+.btn-new-product
+  display: inline-flex
+  flex-direction: column
+  justify-content: center
+  align-content: center
+  +single-box-shadow($color: $gray)
+  width: $product-img-width
+  height: $product-img-height
+  text-align: center
+  vertical-align: top
+  margin: 1rem
+
+.btn-new-product:after
+  content: '+'
+  border: solid 3px
+  border-radius: 50%
+  font-size: 5em
+  width: 100px
+  line-height: 100px
+  margin: 1rem auto 0 auto

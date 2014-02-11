@@ -12,11 +12,6 @@ en:
       edit:
         success: Product successfully edited.
 
-  nav:
-    admin: Admin
-    cart: (%{price} €) My cart
-    sign_out: Sign Out
-
   products:
     add_to_cart: Add to cart
 
