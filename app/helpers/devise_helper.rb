@@ -7,7 +7,20 @@ module DeviseHelper
     store_url(subdomain: resource.store.slug)
   end
 
-  def after_sign_out_path_for(resource)
-    root_url
+  # def after_sign_out_path_for(resource)
+  #   binding.pry
+  #   root_url
+  # end
+
+  def is_store_owner?
+    current_user.present? && current_store.user == current_user
+  end
+
+  def for_store_owner(&block)
+    yield block if is_store_owner?
+  end
+
+  def for_store_client(&block)
+    yield block unless is_store_owner?
   end
 end

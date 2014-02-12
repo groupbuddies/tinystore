@@ -1,3 +1,3 @@
 $ ->
   $('.js-cart-toggler').on 'click', ->
-    $('.js-cart-window').toggle()
+    $('.js-cart-window').slideToggle()

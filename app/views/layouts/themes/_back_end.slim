@@ -5,7 +5,7 @@ body class="theme-#{current_theme}"
         .logo = image_tag 'logo.png'
         nav#nav
           - if current_store
-            = link_to 'Back to store', store_path, class: 'btn-nav'
+            = link_to 'Go back to store', store_path, class: 'btn-nav'
     .flashes
       - flash.each do |key, value|
         .title.flash class=(key) = value

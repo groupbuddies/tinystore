@@ -54,14 +54,16 @@
 
 .btn-remove-cart-item
   @extend %link
-  border: solid 1px $red
   color: $red
   width: 30px
   line-height: 30px
   font-size: $title-size
   text-align: center
-  &:after
-    content: 'x'
+  background: image-url('icons/delete-cart-item.png')
+  border: solid 1px $red
+  &:hover
+    background: image-url('icons/delete-cart-item-hover.png') $red
+
 
 .btn-cart-checkout
   @extend %btn

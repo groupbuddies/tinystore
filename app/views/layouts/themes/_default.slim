@@ -3,10 +3,10 @@ body class="theme-#{current_theme}"
     .top-row
       .logo = image_tag current_store.logo.url(:header)
       nav#nav
-        - if current_user.present?
+        - for_store_owner
           = link_to t('nav.admin'), '#', class: 'btn-main'
           = link_to t('nav.sign_out'), destroy_user_session_path, class: 'btn-secondary'
-        - else
+        - for_store_client
           = link_to 'Store', store_path, class: 'btn-secondary'
           = render '/shared/cart/menu'
     p.store-description = current_store.description

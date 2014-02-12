@@ -5,4 +5,7 @@
     span.price = product.price
 
   .product-actions
-    = link_to 'Add to cart', cart_items_path(cart_item: { product_id: product.id }), method: :post, class: 'btn-cart'
+    - for_store_owner
+      = link_to 'Edit product', edit_manager_product_path(product), class: 'btn-main'
+    - for_store_client
+      = link_to 'Add to cart', cart_items_path(cart_item: { product_id: product.id }), method: :post, class: 'btn-cart'
