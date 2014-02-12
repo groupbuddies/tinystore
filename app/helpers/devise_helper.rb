@@ -8,6 +8,6 @@ module DeviseHelper
   end
 
   def after_sign_out_path_for(resource)
-    root_url(subdomain: '')
+    root_url
   end
 end
