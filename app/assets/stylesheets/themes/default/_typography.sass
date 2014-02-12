@@ -4,10 +4,24 @@
   color: $black
 
 .title
-  font-family: $title-font
   font-size: $title-size
   font-style: italic
 
+.subtitle
+  font-size: $title-size
+
+.product-name
+  font-family: $text-font
+  font-weight: normal
+  font-size: $title-size
+
 .store-description
+  font-family: $alt-font
   font-weight: bold
   color: $gray
+
+.price
+  font-size: $text-size
+  color: $gray
+  &:after
+    content: "€"

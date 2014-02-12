@@ -1,16 +1,37 @@
-%btn
+%link
   text-decoration: none
-  display: inline-block
-  padding: $space/2 $space*2
-  text-align: center
   color: $black
-  background-color: $white
+
+%btn
+  @extend %link
+  display: inline-block
+  color: $black
+  line-height: 2rem
+  text-align: center
+  min-width: 160px
   max-width: 200px
 
 .btn-main
   @extend %btn
+  color: $black
   border: solid 2px $black
   font-weight: bold
+  &:hover
+    background-color: $black
+    color: $white
+
+.btn-cart
+  @extend .btn-main
+  font-weight: normal
+  padding: 0
+  &:after
+    content: image-url('icons/cart-black.png')
+    float: right
+    padding-right: 0.5rem
+    line-height: 1em
+  &:hover:after
+    content: image-url('icons/cart-white.png')
 
 .btn-secondary
   @extend %btn
+  color: $gray

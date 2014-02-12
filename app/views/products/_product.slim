@@ -1,8 +1,8 @@
 .product
-  .product-picture = image_tag product.picture.url(:large)
-  h2.product-name = product.name
-  p.product-description = product.description
-  p.product-price = product.price
+  = link_to product
+    = image_tag product.picture.url(:large), class: 'product-picture'
+    h2.product-name = product.name
+    span.price = product.price
 
   .product-actions
-    = link_to 'Add to cart', cart_items_path(cart_item: { product_id: product.id }), method: :post
+    = link_to 'Add to cart', cart_items_path(cart_item: { product_id: product.id }), method: :post, class: 'btn-cart'

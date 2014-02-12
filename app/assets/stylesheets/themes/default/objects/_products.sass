@@ -2,33 +2,39 @@
 
 $product-img-width: 300px
 $product-img-height: 400px
+$new-product-circle-radius: 150px
+$product-blur: 5px
+$product-hover-blur: 10px
 
 .product
   display: inline-block
   vertical-align: top
-  margin: 1rem
+  margin: 2rem
   text-align: center
-  p,
-  h2
-    margin: 1rem
-  .product-picture
-    width: $product-img-width
-    height: $product-img-height
-    line-height: $product-img-height
-    img
-      +single-box-shadow($color: $gray)
+  a
+    @extend %link
+  .subtitle
+    text-align: center
   .product-name,
-  .product-price
-    font-size: $title-size
-  .product-description
-    font-family: $title-font
-  .product-price
-    &:after
-      content: "€"
+  .price
+    padding: 0.5rem
+  .product-actions
+    padding-top: 1rem
+
+
+.product-picture
+  width: $product-img-width
+  height: $product-img-height
+  line-height: $product-img-height
+  +single-box-shadow($color: $gray, $blur: $product-blur)
+
+.product:hover .product-picture,
+.btn-new-product:hover
+  +single-box-shadow($color: $gray, $blur: $product-hover-blur)
+
 
 .btn-new-product
-
-.btn-new-product
+  @extend %link
   display: inline-flex
   flex-direction: column
   justify-content: center
@@ -38,13 +44,13 @@ $product-img-height: 400px
   height: $product-img-height
   text-align: center
   vertical-align: top
-  margin: 1rem
+  margin: 2rem
 
 .btn-new-product:after
   content: '+'
-  border: solid 3px
+  border: solid 1px $black
   border-radius: 50%
   font-size: 5em
-  width: 100px
-  line-height: 100px
-  margin: 1rem auto 0 auto
+  width: $new-product-circle-radius
+  line-height: $new-product-circle-radius
+  margin: 2rem auto 0 auto
