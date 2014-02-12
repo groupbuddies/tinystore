@@ -3,16 +3,17 @@ $back-color: $white
 $footer-text-color: $white
 $footer-height: 60px
 
-#header
-  background-color: $header-color
+&
+  margin: 0 3rem
 
 #header
-  padding: $space/2 $space
   .top-row
     display: flex
     justify-content: space-between
-    align-items: center
+    align-items: flex-end
+    padding-bottom: 1rem
+    border-bottom: solid 1px $gray
+    margin: 1rem 0
 
-#content
-  margin: $space * 2
-  text-align: center
+.store-description
+  max-width: 300px

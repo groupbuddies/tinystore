@@ -21,13 +21,13 @@ class StoreLogoUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process :resize_to_limit => [200, 200]
+  process :resize_to_limit => [200, 100]
 
   version :header do
-    process :resize_to_limit => [100, 100]
+    process :resize_to_limit => [100, 50]
   end
   version :preview do
-    process :resize_to_limit => [100, 100]
+    process :resize_to_limit => [100, 50]
   end
 
 

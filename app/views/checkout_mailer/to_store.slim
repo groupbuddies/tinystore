@@ -1,7 +1,7 @@
 h1 = @store.name
 h2 New order received
 
-= render '/shared/cart_list', cart: @checkout.cart
+= render '/shared/cart/list', cart: @checkout.cart
 
 p From:
 p = @checkout.client_name

@@ -5,7 +5,7 @@
 
 .cart.js-cart-window
   - if current_cart.items.any?
-    = render '/shared/cart_blank'
+    = render '/shared/cart/blank'
   - else
-    = render '/shared/cart_form', cart: current_cart
+    = render '/shared/cart/form', cart: current_cart
     = link_to 'Checkout', new_checkout_path
