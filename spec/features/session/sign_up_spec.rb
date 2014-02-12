@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 feature 'Sign Up', js: true do
-  before(:all) do
-    SlugInput
-    ImageWithPreviewInput
-  end
 
   scenario 'with valid data' do
     visit new_user_registration_path

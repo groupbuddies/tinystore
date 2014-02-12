@@ -4,11 +4,6 @@ feature 'Edit a product' do
   let!(:store) { setup_store_admin }
   let(:product) { create(:product, store: store) }
 
-  before(:all) do
-    PriceInput
-    ImageWithPreviewInput
-  end
-
   scenario 'Edit with valid data' do
     visit edit_manager_product_path(product)
 

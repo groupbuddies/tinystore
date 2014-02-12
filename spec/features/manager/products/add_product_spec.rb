@@ -3,11 +3,6 @@ require 'spec_helper'
 feature 'Add a product' do
   let!(:store) { setup_store_admin }
 
-  before(:each) do
-    PriceInput
-    ImageWithPreviewInput
-  end
-
   scenario 'No products yet' do
     visit store_path
 

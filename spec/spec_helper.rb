@@ -36,7 +36,13 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.start
     Warden.test_reset!
+
+    # Load missing constants
+    # SlugInput
+    PriceInput
+    ImageWithPreviewInput
   end
+
 
   config.before(:each, type: :feature) do
     Capybara.default_host = "http://#{DEFAULT_HOST}"
