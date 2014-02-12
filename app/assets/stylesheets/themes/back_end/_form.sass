@@ -1,57 +1,55 @@
 .back-end-form
   max-width: $registration-form-width
   margin: auto
-  margin-top: $space * 2
+  margin-top: 2rem
 
   .wizard .content
-    margin: $space*2 0
+    margin: 2rem 0
 
-  fieldset
-    border: none
-    padding: 0
-  legend
-    display: none
-
-  label,
+  .input
+    position: relative
+  .label,
   .inline-errors
-    display: inline-block
     position: absolute
-    width: 200px
+    padding: 0 1rem
+    width: 400px
     color: $light-blue
     line-height: 40px
-
-  label
-    margin-left: -220px
+  .label
+    right: 400px
     text-align: right
+  .inline-errors
+    left: 400px
+    top: 0
 
-  .boolean label
+  .boolean .label
     position: relative
     margin-left: 0
     text-align: left
 
-  .inline-errors
-    margin-left: 10px
-
   input
     height: 40px
 
-  .slug-input,
-  .price-input
-    width: 150px
+  .slug.input,
+  .price.input
+    input
+      width: 150px
+    .inline-errors
+      left: 150px
 
   .slug-domain
     color: $dark-blue
     line-height: 40px
     vertical-align: top
-    padding-left: $space/2
+    padding-left: 0.5rem
 
   .price-input
-    padding-right: $space*3
+    padding-right: 3rem
 
   .price.input:after
     content: "€"
     font-size: $text-size
-    margin-left: -$space*2
+    margin-left: -1rem*2
     vertical-align: middle
 
   input[type=file]:before
@@ -69,7 +67,7 @@
     .registration-message
       line-height: 30px
       &:first-child
-        margin-top: $space * 4
+        margin-top: 4rem
 
     input[type=submit]
-      margin-top: $space
+      margin-top: 1rem
