@@ -3,9 +3,7 @@
     span.cart-size = "(#{current_cart.items.count})"
   span = t('nav.cart')
 
-.cart.js-cart-window
-  - if current_cart.items.any?
-    = render '/shared/cart/blank'
-  - else
+- if current_cart.items.any?
+  .cart.cart-small.js-cart-window
     = render '/shared/cart/form', cart: current_cart
-    = link_to 'Checkout', new_checkout_path
+    = link_to 'Proceed to checkout', new_checkout_path, class: 'btn-cart-checkout'

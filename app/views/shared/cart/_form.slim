@@ -1,8 +1,14 @@
 ul.cart-list
   - cart.items.each do |item|
     li.cart-item
-      p = item.product.name
+      = image_tag item.product.picture.url(:thumb), class: 'picture'
+      p.name = item.product.name + item.product.name + item.product.name + item.product.name
+      span.price = item.price
       = semantic_form_for item, url: cart_item_path(item), method: :patch do |form|
         = form.inputs
           = form.input :amount
-        = form.actions :submit
+      = link_to '', cart_item_path(item), method: :delete, class: 'btn-remove-cart-item'
+
+.cart-total
+  ' Total:
+  span.price = cart.price

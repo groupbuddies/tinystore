@@ -1,22 +1,44 @@
-.btn-cart
-  .cart-size
-    padding-right: 1rem
+.cart-list
+  padding: 1rem 1rem 0 1rem
+  .price,
+  .cart_item
+    margin-right: 1rem
+  .picture
+    width: 50px
+    height: 50px
+  .name
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+  .price
+    color: $black
 
-.cart
+.cart-total
+  padding: 0 1rem 1rem 0
+  text-align: right
+  color: $gray
+  .price
+    color: $black
+
+.cart-small
   display: none
   position: absolute
   right: 0
   margin-right: 3rem
-  background-color: $gray
-  padding: 1rem
+  background-color: $white
+  border: solid 1px $black
+  .picture
+    display: none
 
 .cart-item
   display: flex
   justify-content: space-between
+  align-items: center
   line-height: 2rem
-
+  margin-bottom: 1rem
   p
     margin-right: 2rem
+    max-width: 200px
 
   form
     display: flex
@@ -25,3 +47,25 @@
       display: none
     input[type=number]
       width: 3rem
+
+.btn-cart
+  .cart-size
+    padding-right: 1rem
+
+.btn-remove-cart-item
+  @extend %link
+  border: solid 1px $red
+  color: $red
+  width: 30px
+  line-height: 30px
+  font-size: $title-size
+  text-align: center
+  &:after
+    content: 'x'
+
+.btn-cart-checkout
+  @extend %btn
+  background-color: $black
+  color: $white
+  max-width: 100%
+  width: 100%
