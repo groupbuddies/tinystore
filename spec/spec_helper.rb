@@ -38,7 +38,7 @@ RSpec.configure do |config|
     Warden.test_reset!
 
     # Load missing constants
-    # SlugInput
+    SlugInput
     PriceInput
     ImageWithPreviewInput
   end

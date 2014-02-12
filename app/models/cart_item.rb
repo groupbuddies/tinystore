@@ -8,7 +8,7 @@ class CartItem < ActiveRecord::Base
   validates_uniqueness_of :product, scope: :cart_id
   validates :amount, numericality: { greater_or_equal_than: 0 }
   before_validation :set_initial_amount
-  before_save :set_product_price
+  before_validation :set_product_price
   after_save :destroy_if_amount_is_zero
 
   def price
@@ -31,6 +31,6 @@ class CartItem < ActiveRecord::Base
   end
 
   def set_product_price
-    self.unitary_price = product.price
+    self.unitary_price ||= product.price
   end
 end

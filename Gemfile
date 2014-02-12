@@ -33,7 +33,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'sqlite3'
-  gem 'spring'
+  gem 'spring', '~> 1.1.1'
   gem 'spring-commands-rspec'
 end
 

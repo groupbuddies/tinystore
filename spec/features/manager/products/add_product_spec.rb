@@ -6,7 +6,7 @@ feature 'Add a product' do
   scenario 'No products yet' do
     visit store_path
 
-    page.should have_css '.new-product'
+    page.should have_css '.btn-new-product'
   end
 
   scenario 'Add a valid product' do

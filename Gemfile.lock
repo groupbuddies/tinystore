@@ -192,7 +192,7 @@ GEM
       railties (>= 3.0, < 4.1)
       slim (~> 2.0)
     slop (3.4.7)
-    spring (1.1.0)
+    spring (1.1.1)
     spring-commands-rspec (1.0.1)
       spring (>= 0.9.1)
     sprockets (2.10.1)
@@ -258,7 +258,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   slim-rails
-  spring
+  spring (~> 1.1.1)
   spring-commands-rspec
   sqlite3
   turbolinks
