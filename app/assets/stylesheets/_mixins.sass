@@ -13,11 +13,13 @@
 @mixin content-icon($name, $hover: false)
   @include icons-sprite($name)
   @include icons-sprite-dimensions($name)
+  background-clip: border-box
   vertical-align: middle
   display: inline-block
   @if $hover
     &:hover
       @include icons-sprite("#{$name}-hover")
+      background-clip: border-box
 
 
 @mixin after-icon($name, $hover: false)
