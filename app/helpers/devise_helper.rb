@@ -11,6 +11,10 @@ module DeviseHelper
     root_url
   end
 
+  def is_client?
+    current_user.nil?
+  end
+
   def is_store_owner?
     current_user.present? && current_store.user == current_user
   end

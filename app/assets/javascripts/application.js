@@ -5,3 +5,4 @@
 //= require file_upload_proxy
 //= require image_upload_preview
 //= require cart
+//= require cart_item_amount_updater

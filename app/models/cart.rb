@@ -7,4 +7,9 @@ class Cart < ActiveRecord::Base
   def price
     items.map(&:price).sum
   end
+
+  def sanitize
+    items.where(amount: 0).destroy_all
+    self
+  end
 end

@@ -10,22 +10,12 @@ class CartItem < ActiveRecord::Base
 
   before_validation :set_initial_amount
   before_create :set_product_price
-  after_save :destroy_if_amount_is_zero
 
   def price
     self.unitary_price * amount
   end
 
   private
-
-  def destroy_if_amount_is_zero
-    if amount <= 0
-      destroy
-      false
-    else
-      true
-    end
-  end
 
   def set_initial_amount
     self.amount ||= 1

@@ -1,6 +1,6 @@
 = link_to '#', class: 'btn-main btn-cart js-cart-toggler'
   - if current_cart.items.any?
-    span.cart-size = "(#{current_cart.items.count})"
+    span.cart-size = "(#{current_cart.items.map(&:amount).sum})"
   span = t('nav.cart')
 
 - if current_cart.items.any?

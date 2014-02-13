@@ -1,5 +1,8 @@
 class CartItemsController < ApplicationController
   before_filter :is_in_store
+  
+  respond_to :json, only: [:update]
+  skip_before_filter :sanitize_cart, only: [:update]
 
   # POST /cart_items
   def create
@@ -10,7 +13,7 @@ class CartItemsController < ApplicationController
   # PATCH /cart_items/:product_id/:product_amount
   def update
     existing_cart_item.update_attributes(update_cart_item_params)
-    redirect_to :back
+    respond_with :ok
   end
 
   # DELETE /cart/:id

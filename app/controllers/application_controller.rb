@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_devise_parameters, if: :devise_controller?
+  before_filter :sanitize_cart, if: :is_client?
 
   include UrlHelper
   include ThemeHelper
@@ -14,5 +15,9 @@ class ApplicationController < ActionController::Base
 
   def configure_devise_parameters
     devise_parameter_sanitizer.for(:sign_up).concat [:name, store_attributes: [:name, :slug, :email, :logo, :description]]
+  end
+
+  def sanitize_cart
+    current_cart.sanitize
   end
 end

@@ -3,10 +3,14 @@ ul.cart-list
     li.cart-item
       = image_tag item.product.picture.url(:thumb), class: 'picture'
       = link_to item.product.name, item.product, class: 'name link'
-      span.price = item.price
-      = semantic_form_for item, url: cart_item_path(item), method: :patch do |form|
+      span.price = item.unitary_price
+      - form_class = "js-cart-item-form-#{item.id}"
+      = semantic_form_for item, url: cart_item_path(item), method: :patch, html: { class: form_class } do |form|
         = form.inputs
-          = form.input :amount
+          = form.input :amount, as: :number_spinner
+      javascript:
+        $(function(){ $(".#{form_class}").cartItemAmountUpdater(); });
+
       = link_to '', cart_item_path(item), method: :delete, class: 'btn-remove-cart-item'
 
 .cart-total
