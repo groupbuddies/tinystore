@@ -10,6 +10,7 @@
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
+    padding-right: 1rem
   .price
     color: $black
 
@@ -59,10 +60,13 @@
   line-height: 30px
   font-size: $title-size
   text-align: center
-  background: image-url('icons/delete-cart-item.png')
-  border: solid 1px $red
+  +content-icon('delete-cart-item', $hover: true)
   &:hover
-    background: image-url('icons/delete-cart-item-hover.png') $red
+    background-color: $red
+  // background: image-url('icons/delete-cart-item.png')
+  border: solid 1px $red
+  // &:hover
+  //   background: image-url('icons/delete-cart-item-hover.png') $red
 
 
 .btn-cart-checkout

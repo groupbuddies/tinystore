@@ -9,3 +9,23 @@
     @content
   &::-webkit-input-placeholder
     @content
+
+@mixin content-icon($name, $hover: false)
+  @include icons-sprite($name)
+  @include icons-sprite-dimensions($name)
+  vertical-align: middle
+  display: inline-block
+  @if $hover
+    &:hover
+      @include icons-sprite("#{$name}-hover")
+
+
+@mixin after-icon($name, $hover: false)
+  &:after
+    +content-icon($name, $hover: false)
+    content: " "
+    margin-left: 1rem
+    @content
+  @if $hover
+    &:hover:after
+      @include icons-sprite("#{$name}-hover")

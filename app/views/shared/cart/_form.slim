@@ -2,7 +2,7 @@ ul.cart-list
   - cart.items.each do |item|
     li.cart-item
       = image_tag item.product.picture.url(:thumb), class: 'picture'
-      p.name = item.product.name + item.product.name + item.product.name + item.product.name
+      = link_to item.product.name, item.product, class: 'name link'
       span.price = item.price
       = semantic_form_for item, url: cart_item_path(item), method: :patch do |form|
         = form.inputs

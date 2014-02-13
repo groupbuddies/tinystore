@@ -24,13 +24,9 @@
   @extend .btn-main
   font-weight: normal
   padding: 0
-  &:after
-    content: image-url('icons/cart.png')
-    float: right
-    padding-right: 0.5rem
-    line-height: 1em
-  &:hover:after
-    content: image-url('icons/cart-hover.png')
+  @include after-icon('cart', true)
+    line-height: 2rem
+    height: 2rem
 
 .btn-secondary
   @extend %btn
