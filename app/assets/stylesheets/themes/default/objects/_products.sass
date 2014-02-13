@@ -8,9 +8,10 @@ $product-hover-blur: 10px
 
 .product
   display: inline-block
-  vertical-align: top
+  vertical-align: bottom
   text-align: center
   margin: 4rem 4rem 0 0
+  min-width: $product-img-width
   a
     @extend %link
   .subtitle
@@ -23,8 +24,6 @@ $product-hover-blur: 10px
 
 
 .product-picture
-  width: $product-img-width
-  height: $product-img-height
   line-height: $product-img-height
   +single-box-shadow($color: $gray, $blur: $product-blur)
 

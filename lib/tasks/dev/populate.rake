@@ -22,11 +22,12 @@ namespace :dev do
     )
 
     puts 'Creating products'
-    5.times do |i|
+    12.times do |i|
       user.store.products.create(
         name: "Produto #{i}",
         price: '1.50',
-        description: "Description #{i}"
+        description: "Description #{i}",
+        picture: File.open(Rails.root.join("spec/fixtures/product_picture#{i % 3}.jpg"))
       )
     end
   end
