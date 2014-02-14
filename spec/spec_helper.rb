@@ -41,6 +41,7 @@ RSpec.configure do |config|
     SlugInput
     PriceInput
     ImageWithPreviewInput
+    NumberSpinnerInput
   end
 
 

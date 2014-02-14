@@ -1,0 +1,38 @@
+.checkout-page
+  max-width: 1200px
+  margin: auto
+
+  .info
+    font-weight: bold
+    padding: 1rem 0
+
+  .info,
+  .cart-list
+    border-bottom: solid 2px $light-gray
+
+  form.checkout
+    margin-top: 1rem
+    input,
+    textarea
+      margin-top: 0.5rem
+      margin-bottom: 1rem
+    .actions
+      text-align: right
+      input
+        margin: 0
+
+
+.btn-checkout
+  @extend %btn
+  background-color: $black
+  color: $white
+  @include after-icon('cart', true)
+
+@media all and (min-width: 900px)
+  .checkout-page
+    display: flex
+    justify-content: space-between
+    .checkout-cart
+      width: 55%
+    .checkout-form
+      width: 40%

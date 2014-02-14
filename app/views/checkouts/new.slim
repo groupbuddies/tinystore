@@ -1,11 +1,14 @@
-h1 Checkout
+.checkout-page
+  .checkout-cart
+    p.info You have 2 items in your cart
+    = render '/shared/cart/form', cart: current_cart
+  .checkout-form
+    p.info Fill in your personal info
+    = semantic_form_for @checkout, url: checkout_path do |form|
+      = form.inputs
+        = form.input :client_name
+        = form.input :client_email
+        = form.input :notes, input_html: { rows: 3 }
 
-= render '/shared/cart/form', cart: current_cart
-= semantic_form_for @checkout, url: checkout_path do |form|
-  = form.inputs
-    = form.input :client_name
-    = form.input :client_email
-    = form.input :notes
-
-  = form.actions
-    = form.action :submit
+      = form.actions
+        = form.action :submit, button_html: { class: 'btn-checkout' }

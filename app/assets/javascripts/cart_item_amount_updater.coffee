@@ -3,7 +3,7 @@ $.fn.cartItemAmountUpdater = ->
     @$el = $(@)
     @$item = @$el.closest('.cart-item')
     @$input  = @$el.find('input[type=text]')
-    @$total = $(document).find('.cart-total .price')
+    @$total = @$item.closest('.cart').find('.cart-total .price')
 
     @unitary_price = parseFloat(@$el.closest('.cart-item').find('.price').text())
 
@@ -14,9 +14,12 @@ $.fn.cartItemAmountUpdater = ->
       $el[attr](newValue)
       $el.trigger('change')
 
+    @increment_total = (inc) =>
+      @increment(@$total, 'text', @unitary_price*inc, true)
+
     @update = (inc) =>
       @increment(@$input, 'val', inc)
-      @increment(@$total, 'text', @unitary_price*inc, true)
+      @increment_total(inc)
       @$input.trigger('change')
 
     @submit = =>
@@ -28,9 +31,16 @@ $.fn.cartItemAmountUpdater = ->
             amount: @$input.val()
       )
 
+    @$input.data('old-value', @$input.val())
+
     @$el.find('.plus').on  'click',   => @update(1)
     @$el.find('.minus').on 'click',  => @update(-1)
-    @$input.on 'change', => @submit()
+    @$input.on 'change', =>
+      newValue = parseInt(@$input.val())
+      inc = newValue - parseInt(@$input.data('old-value'))
+      @increment_total(inc)
+      @$input.data('old-value', newValue)
+      @submit()
 
 $ ->
   $('.js-cart-item-updater').cartItemAmountUpdater()

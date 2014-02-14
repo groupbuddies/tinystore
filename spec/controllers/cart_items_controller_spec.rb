@@ -41,7 +41,7 @@ describe CartItemsController do
       cart = stub_current_cart
 
       expect {
-        patch :update, id: cart.items.first.id, cart_item: { amount: 2 }
+        patch :update, id: cart.items.first.id, cart_item: { amount: 2 }, format: :json
       }.to change { cart.items.first.amount }
     end
   end

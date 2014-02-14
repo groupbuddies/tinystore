@@ -1,15 +1,16 @@
-ul.cart-list
-  - cart.items.each do |item|
-    li.cart-item
-      = image_tag item.product.picture.url(:thumb), class: 'picture'
-      = link_to item.product.name, item.product, class: 'name link'
-      span.price = item.unitary_price
-      = semantic_form_for item, url: cart_item_path(item), method: :patch, html: { class: 'js-cart-item-updater' } do |form|
-        = form.inputs
-          = form.input :amount, as: :number_spinner
+.cart
+  ul.cart-list
+    - cart.items.each do |item|
+      li.cart-item
+        = image_tag item.product.picture.url(:thumb), class: 'picture'
+        = link_to item.product.name, item.product, class: 'name link'
+        span.price = item.unitary_price
+        = semantic_form_for item, url: cart_item_path(item), method: :patch, html: { class: 'js-cart-item-updater' } do |form|
+          = form.inputs
+            = form.input :amount, as: :number_spinner
 
-      = link_to '', cart_item_path(item), method: :delete, class: 'btn-remove-cart-item'
+        = link_to '', cart_item_path(item), method: :delete, class: 'btn-remove-cart-item'
 
-.cart-total
-  ' Total:
-  span.price = cart.price
+  .cart-total
+    ' Total:
+    span.price = cart.price

@@ -9,8 +9,8 @@ en:
       cart_item:
         amount: Qty
       checkout:
-        client_name: Your name
-        client_email: Your email
+        client_name: Name
+        client_email: Email
         notes: Notes
       product:
         name: Name of the product
@@ -38,6 +38,10 @@ en:
     placeholders:
       cart_item:
         amount: 0
+      checkout:
+        client_name: John Doe
+        client_email: john-doe@gmail.com
+        notes: Any special requests or information
       product:
         name: Apple Macbook Air
         price: Price tag
@@ -54,6 +58,8 @@ en:
     actions:
       cart_item:
         update: Update
+      checkout:
+        create: Place order
       product:
         create: Create product
       user:
