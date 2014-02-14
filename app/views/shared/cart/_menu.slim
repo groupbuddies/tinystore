@@ -11,4 +11,5 @@
   - if flash[:show_cart]
     coffee:
       $ ->
-        $('.js-cart-window').show()
+        $('.js-cart-window').fadeIn(0).delay(5000).fadeOut(250)
+
