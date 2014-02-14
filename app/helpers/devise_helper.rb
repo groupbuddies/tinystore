@@ -12,7 +12,7 @@ module DeviseHelper
   end
 
   def is_client?
-    current_user.nil?
+    current_store.present? && current_user.nil?
   end
 
   def is_store_owner?
