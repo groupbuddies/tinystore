@@ -1,3 +1,3 @@
 $ ->
   $('.js-cart-toggler').on 'click', ->
-    $('.js-cart-window').slideToggle()
+    $('.js-cart-window').fadeToggle(250)
