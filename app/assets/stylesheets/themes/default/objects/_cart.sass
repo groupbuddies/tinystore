@@ -59,12 +59,13 @@
 
 .btn-remove-cart-item
   @extend %link
+  +content-icon('delete-cart-item', $hover: true)
   color: $red
-  width: 30px
+  width: 2rem
+  height: 2rem
   line-height: 30px
   font-size: $title-size
   text-align: center
-  +content-icon('delete-cart-item', $hover: true)
   border: solid 1px $red
   &:hover
     background-color: $red
