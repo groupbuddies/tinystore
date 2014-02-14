@@ -6,6 +6,8 @@ body class="theme-#{current_theme}"
         nav#nav
           - if current_store
             = link_to 'Go back to store', store_path, class: 'btn-nav'
+          - if current_user
+            = link_to 'Sign out', destroy_user_session_path, class: 'btn-nav'
     .flashes
       - flash.each do |key, value|
         .title.flash class=(key) = value

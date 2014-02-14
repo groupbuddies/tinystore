@@ -59,12 +59,16 @@
     margin-bottom: 20px
 
   fieldset .actions,
-  fieldset.actions li
+  fieldset:not(:last-child).actions li
     float: right
 
   .user.wizard fieldset.actions
     text-align: center
     .registration-message
+      font-family: $title-font
+      font-size: $title-size
+      font-weight: normal
+      font-style: italic
       line-height: 30px
       &:first-child
         margin-top: 4rem
