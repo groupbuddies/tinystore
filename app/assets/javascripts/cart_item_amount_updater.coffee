@@ -1,38 +1,33 @@
+
+
 $.fn.cartItemAmountUpdater = ->
-  @url = @attr('action')
-  @method = @find('[name=_method]').val()
-
+  @$item = @closest('.cart-item')
   @$input  = @find('input[type=text]')
-  @$minus = @find('.minus')
-  @$plus  = @find('.plus')
-  @$total = @closest('.cart').find('.cart-total .price')
+  @$total = @$item.closest('.cart').find('.cart-total .price')
 
-  @price = parseFloat(@closest('.cart-item').find('.price').text())
+  @unitary_price = parseFloat(@closest('.cart-item').find('.price').text())
 
-  increment = (amount) =>
-    oldValue = @$input.val()
-    newValue = oldValue + amount
+  @increment = ($el, attr, amount, is_float = false) =>
+    oldValue = parseFloat($el[attr]())
+    newValue = Math.max(0, oldValue + amount)
+    newValue = newValue.toFixed(2) if is_float
+    $el[attr](newValue)
+    $el.trigger('change')
 
   @update = (inc) =>
-    oldValue = parseInt(@$input.val())
-    newValue = Math.max(0, oldValue + inc)
-    if newValue != oldValue
-      oldTotal = parseFloat(@$total.text())
-      newTotal = oldTotal + @price * inc
-    @$input.val(newValue)
-    @$total.text(newTotal)
-    @submit()
+    @increment(@$input, 'val', inc)
+    @increment(@$total, 'text', @unitary_price*inc, true)
+    @$input.trigger('change')
 
   @submit = =>
     $.ajax(
-      type: @method,
-      url: @url,
+      type: @find('[name=_method]').val(),
+      url: @attr('action'),
       data:
         cart_item:
           amount: @$input.val()
     )
 
-  @$plus.on 'click', =>
-    @update(1)
-  @$minus.on 'click', =>
-    @update(-1)
+  @find('.plus').on  'click',   => @update(1)
+  @find('.minus').on 'click',  => @update(-1)
+  @$input.on 'change', => @submit()
