@@ -6,7 +6,13 @@ class CartItemsController < ApplicationController
 
   # POST /cart_items
   def create
-    current_cart.items.create(create_cart_item_params)
+    if cart_item = current_cart.items.where(product_id: create_cart_item_params[:product_id]).first
+      cart_item.increment :amount, 1
+      cart_item.save
+    else
+      current_cart.items.create(create_cart_item_params)
+    end
+    flash[:show_cart] = true
     redirect_to store_path
   end
 

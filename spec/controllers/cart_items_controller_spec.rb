@@ -24,6 +24,14 @@ describe CartItemsController do
         post :create, cart_item: { product_id: products[0].id }
       }.to change { CartItem.count }.by(1)
     end
+
+    it 'increases the amount if product already added' do
+      cart = stub_current_cart
+
+      expect {
+        post :create, cart_item: { product_id: cart.items.first.product.id }
+      }.to change { cart.items.first.amount }
+    end
   end
 
   describe 'DELETE /cart_items/:product_id' do

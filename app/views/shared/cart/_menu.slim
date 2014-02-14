@@ -7,3 +7,8 @@
   .cart.cart-small.js-cart-window
     = render '/shared/cart/form', cart: current_cart
     = link_to 'Proceed to checkout', new_checkout_path, class: 'btn-cart-checkout'
+
+  - if flash[:show_cart]
+    coffee:
+      $ ->
+        $('.js-cart-window').slideToggle()
