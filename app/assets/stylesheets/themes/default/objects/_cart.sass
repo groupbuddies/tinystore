@@ -1,5 +1,6 @@
 .cart-list
   padding: 1rem 1rem 0 1rem
+  min-width: 400px
   .price,
   .cart_item
     margin-right: 1rem
@@ -15,10 +16,12 @@
     color: $black
 
 .cart-total
-  padding: 0 1rem 1rem 0
+  padding: 1rem 1rem 1rem 0
   text-align: right
   color: $gray
   .price
+    min-width: 4rem
+    display: inline-block
     color: $black
 
 .cart-small
@@ -33,13 +36,12 @@
 
 .cart-item
   display: flex
-  justify-content: space-between
+  justify-content: flex-end
   align-items: center
   line-height: 2rem
   margin-bottom: 1rem
-  p
-    margin-right: 2rem
-    max-width: 200px
+  .name
+    flex-grow: 1
 
   form
     display: flex
