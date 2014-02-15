@@ -12,6 +12,7 @@ $product-hover-blur: 10px
   text-align: center
   margin: 4rem 4rem 0 0
   min-width: $product-img-width
+  position: relative
   a
     @extend %link
   .subtitle
@@ -30,6 +31,18 @@ $product-hover-blur: 10px
 .product:hover .product-picture,
 .btn-new-product:hover
   +single-box-shadow($color: $gray, $blur: $product-hover-blur)
+
+.product-details
+  display: none
+  position: absolute
+  width: calc(100% + 0.5rem)
+  margin-left: -0.5rem
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.1)
+  top: 0 - 2.5rem
+
+.product:hover .product-details
+  display: block
 
 
 .btn-new-product
