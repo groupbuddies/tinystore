@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
 
   monetize :price_cents
 
+  acts_as_paranoid
+
   validates_presence_of :name, :price
   validates :description, length: { maximum: 140 }
   validates :price, numericality: { greater_than: 0 }

@@ -5,7 +5,7 @@ body class="theme-#{current_theme}"
         .logo = image_tag current_store.logo.url(:header)
       nav#nav
         - for_store_owner
-          = link_to t('nav.admin'), '#', class: 'btn-main'
+          = link_to t('nav.admin'), manager_products_path, class: 'btn-main'
           = link_to t('nav.sign_out'), destroy_user_session_path, class: 'btn-secondary'
         - for_store_client
           = render '/shared/cart/menu'

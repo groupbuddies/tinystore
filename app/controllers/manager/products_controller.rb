@@ -2,6 +2,12 @@ class Manager::ProductsController < Manager::ApplicationController
 
   respond_to :html
 
+  # GET /manager/products
+  def index
+    @products = current_store.products
+    @deleted_products = current_store.products.only_deleted
+  end
+
   # GET /manager/products/new
   def new
     @product = current_store.products.build
@@ -34,6 +40,16 @@ class Manager::ProductsController < Manager::ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    Product.destroy(params[:id])
+    redirect_to :back
+  end
+  
+  def restore
+    Product.restore(params[:id])
+    redirect_to :back
   end
 
   private
