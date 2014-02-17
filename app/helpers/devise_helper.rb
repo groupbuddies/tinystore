@@ -8,7 +8,7 @@ module DeviseHelper
   end
 
   def after_sign_out_path_for(resource)
-    root_url
+    store_url(subdomain: current_user.store.slug)
   end
 
   def is_client?

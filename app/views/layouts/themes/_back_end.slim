@@ -8,9 +8,9 @@ body class="theme-#{current_theme}"
             = link_to 'Go back to store', store_path, class: 'btn-nav'
           - if current_user
             = link_to 'Sign out', destroy_user_session_path, class: 'btn-nav'
-    .flashes
-      - flash.each do |key, value|
-        .title.flash class=(key) = value
+    /* .flashes */
+    /*   - flash.each do |key, value| */
+    /*     .title.flash class=(key) = value */
     section#content
       == yield
     #root-footer

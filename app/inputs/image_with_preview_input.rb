@@ -24,7 +24,9 @@ class ImageWithPreviewInput < Formtastic::Inputs::FileInput
   end
 
   def image_preview
-    template.image_tag object.public_send(method).url(:preview), class: 'image-upload-preview'
+    template.content_tag(:div, class: 'image-upload-preview-container') do
+      template.image_tag object.public_send(method).url(:preview), class: 'image-upload-preview'
+    end
   end
 
   def hint

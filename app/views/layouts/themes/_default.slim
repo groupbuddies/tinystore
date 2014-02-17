@@ -9,7 +9,7 @@ body class="theme-#{current_theme}"
           = link_to t('nav.sign_out'), destroy_user_session_path, class: 'btn-secondary'
         - for_store_client
           = render '/shared/cart/menu'
-  - flash.to_hash.slice(:error, :notice, :alert).each do |key, value|
-    .flash class="#{key}" = value
+  /* - flash.to_hash.slice(:error, :notice, :alert).each do |key, value| */
+  /*   .flash class="#{key}" = value */
   section#content
     == yield
