@@ -31,3 +31,16 @@
   @if $hover
     &:hover:after
       @include icons-sprite("#{$name}-hover")
+
+@mixin img-overlay($bg-color: rgba(0, 0, 0, 0.8))
+  display: inline-block
+  position: relative
+  > :last-child
+    display: none
+    position: absolute
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: $bg-color
+  &:hover :last-child
+    display: block

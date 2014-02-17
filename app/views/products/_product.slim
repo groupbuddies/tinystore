@@ -1,7 +1,6 @@
 .product
   = link_to product
     = image_tag product.picture.url(:large), class: 'product-picture'
-    = render '/products/details', product: product
     h2.product-name = product.name
     span.price = product.price
 
