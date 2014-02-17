@@ -1,5 +1,9 @@
 .product-show
-  = render '/products/product', product: @product
+  .product
+    = image_tag @product.picture.url(:large), class: 'picture'
+    h2.title.product-name = @product.name
+    p.description = @product.description
+    span.price = @product.price
 
   .product-actions
     = link_to 'Proceed to the store', store_path, class: 'btn-main'
