@@ -8,7 +8,7 @@ Tinystore::Application.routes.draw do
     resources :products, only: [:show]
 
     namespace :manager do
-      resources :products, only: [:show, :new, :create, :edit, :update]
+      resources :products, only: [:show, :new, :create, :edit, :update, :destroy]
     end
 
     resources :cart_items, only: [:index, :create, :update, :destroy]

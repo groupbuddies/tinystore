@@ -15,22 +15,36 @@ $product-hover-blur: 10px
   position: relative
   a
     @extend %link
-  .subtitle
-    text-align: center
   .product-name,
+  .description,
   .price
     padding: 0.5rem
   .product-actions
     padding-top: 1rem
 
+.product-small
+  .product:hover .product-picture,
+  .btn-new-product:hover
+    +single-box-shadow($color: $gray, $blur: $product-hover-blur)
+
+.product-large
+  .details
+    display: inline-block
+    vertical-align: top
+    text-align: left
+    margin-left: 5rem
+  .price
+    color: $black
+  .description
+    color: $gray
+    margin: 0.5rem 0 2rem 0
+  .product-actions
+    margin-top: 2rem
 
 .product-picture
   line-height: $product-img-height
   +single-box-shadow($color: $gray, $blur: $product-blur)
 
-.product:hover .product-picture,
-.btn-new-product:hover
-  +single-box-shadow($color: $gray, $blur: $product-hover-blur)
 
 .btn-new-product
   @extend %link

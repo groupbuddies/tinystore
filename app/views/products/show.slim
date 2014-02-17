@@ -1,1 +1,12 @@
-= render 'product', product: @product
+.product.product-large
+  = image_tag @product.picture.url(:large), class: 'product-picture'
+  .details
+    h2.title.product-name = @product.name
+    p.description = @product.description
+    span.price = @product.price
+    .product-actions
+      - for_store_owner
+        = link_to 'Edit product', edit_manager_product_path(@product), class: 'btn-main'
+        = link_to 'Delete', manager_product_path(@product), method: :delete, class: 'btn-main'
+      - for_store_client
+        = link_to 'Add to cart', cart_items_path(cart_item: { product_id: @product.id }), method: :post, class: 'btn-cart'
