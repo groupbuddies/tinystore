@@ -32,3 +32,25 @@
       margin-bottom: $space
       padding-left: 0
       padding-right: 0
+
+.product-list
+  max-width: 600px
+  margin: auto
+  .product
+    @include row
+    margin-bottom: 1rem
+    .picture
+      width: 50px
+        text-align: center
+    .name
+      padding-left: 1rem
+      flex-grow: 2
+      // width: 50%
+    .price
+      // width: 20%
+    .actions
+      // width: 10%
+    .price,
+    .actions
+      text-align: right
+      padding-left: 1rem

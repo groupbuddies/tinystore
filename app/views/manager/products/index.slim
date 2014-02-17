@@ -1,5 +1,22 @@
-- @products.each do |product|
-  .product = product.name
+h1.title Active Products
 
-- @deleted_products.each do |product|
-  .product = product.name
+.product-list
+  - @products.each do |product|
+    .product
+      .picture = image_tag product.picture.url(:thumb)
+      .name = product.name
+      .price = product.price
+      .actions
+        = link_to 'a', edit_manager_product_path(product), class: 'btn-edit'
+        = link_to 'a', manager_product_path(product), method: :delete, class: 'btn-destroy'
+
+h1.title Inactive Products
+
+.product-list
+  - @deleted_products.each do |product|
+    .product
+      .picture = image_tag product.picture.url(:thumb)
+      .name = product.name
+      .price = product.price
+      .actions
+        = link_to 'a', manager_product_restore_path(product), class: 'btn-restore'
